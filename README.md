@@ -3,10 +3,10 @@
 
 ## Team
 
-Antonio Perez
-Armen Vartan
-Dylan Krause
-Molly Huerster
+* Antonio Perez 
+* Armen Vartan
+* Dylan Krause
+* Molly Huerster
 
 Like StackOverflow, but not for coding.
 
