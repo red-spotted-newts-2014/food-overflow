@@ -1,9 +1,34 @@
 require 'rails_helper'
 
 describe Hashtag do 
-	context 'validations' do 
+	context 'associations' do 
     it { should have_many :hashtag_questions }
     it { should have_many :questions }
 	end
+
+	context "validations" do 
+
+		it "is valid with a title" do 
+
+			tag = Hashtag.new(title: "fish")
+			expect(tag).to be_valid
+		end
+
+		it "is invalid without a title" do 
+
+			expect(Hashtag.new(title: nil)).to_not be_valid
+		end
+
+		it "is invalid with a duplicate title" do 
+		
+			Hashtag.create(title: "fish")
+			tag = Hashtag.new(title: "fish")
+			expect(tag).to_not be_valid
+		end
+
+
+	end
+
+
 
 end
