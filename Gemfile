@@ -42,4 +42,7 @@ gem 'bcrypt', '~> 3.1.7'
 # testing suite
 gem 'rspec-rails'
 gem 'capybara'
-gem 'factory_girl'
+gem 'factory_girl_rails'
+gem 'shoulda-matchers'
+gem 'selenium-webdriver'
+gem 'database_cleaner'
