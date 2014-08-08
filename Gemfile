@@ -39,7 +39,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-# testing suite
+
 gem 'rspec-rails'
 gem 'capybara'
 gem 'factory_girl_rails'
