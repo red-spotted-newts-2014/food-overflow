@@ -9,6 +9,9 @@ body {
 
 h1 {
   font-size: 1.8em;
+  background-color: #69EEBC;
+  text-align: center;
+  padding: 2% 1%;
 }
 h2 {}
 h3 {}
@@ -97,10 +100,24 @@ a.secondary {
 
 /* TABLES */
 
-table {}
-th {}
-tr {}
-td {}
+table {
+  border: 1px solid black;
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin: 1% auto;
+}
+th {
+  /*font-size: large;*/
+}
+tr {
+  /*font-size: 0;*/
+  /*border: 1px solid red;*/
+}
+td {
+  margin: 0 0;
+  padding: .75em;
+  border: 1px solid black;
+}
 
 /* GRID */
 
