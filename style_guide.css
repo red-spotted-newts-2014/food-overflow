@@ -2,12 +2,14 @@
 
 body {
   font-family: 'Raleway';
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /* HEADERS */
 
-h1 {}
+h1 {
+  font-size: 1.8em;
+}
 h2 {}
 h3 {}
 h4 {}
@@ -16,10 +18,23 @@ h6 {}
 
 /* FONT SIZES */
 
-.small {}
-.medium {}
-.large {}
-.x-large {}
+.x-small {
+  font-size: .75em;
+}
+
+.small {
+  font-size: 0.9em;
+}
+.medium {
+  font-size: ;
+
+}
+.large {
+  font-size: 1.05em;
+}
+.x-large {
+  font-size: 1.1em;
+}
 
 /*BUTTON AND LISTS */
 
