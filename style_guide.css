@@ -38,7 +38,22 @@ h6 {}
 
 /*BUTTON AND LISTS */
 
-button.primary {}
+button.primary {
+  display: inline-block;
+  border: none;
+  padding: .5em;
+  margin: 1em;
+  background: #1DB078;
+  color: white;
+  font-size: 1em;
+  /* box-shadow: 2px 2px 1px #1DB078; */
+}
+
+button.primary:hover {
+  color: #FFC470;
+  box-shadow: 1px 1px 2px #1DB078;
+}
+
 button.secondary {}
 
 ul {}
