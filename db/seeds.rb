@@ -27,9 +27,18 @@ User.all.each do |user|
 end
 
 #add hashtags to questions 
+tags = ['beef','pork','chicken','salads','breakfast','dinner',
+				'lunch','appetizers','desserts', 'dairy', 'tofu', 'vegetables',
+				'legumes', 'french', 'mexican', 'grains', 'vegan', 'steak', 
+				'fish', 'seafood', 'cookies', 'soups', 'stews' 'grilling']
+
+tags.each do |tag|
+	Hashtag.create(title: tag)
+end
+
 User.all.each do |user|
 	user.questions.each do |question|
-		question.hashtags.create( title: Faker::Lorem.word )
+		question.hashtags << Hashtag.all.sample(rand(3)+1)
 	end
 end
 
