@@ -9,6 +9,7 @@ require 'faker'
     image_url:             "http://i.imgur.com/RcQ3bUi.jpg",
     password:              "12345678"
     # password_confirmation: "12345678"
+
     # WHATS THAT CONFIRMATION THING?
   )
 end
@@ -29,13 +30,6 @@ end
 User.all.each do |user|
 	user.questions.each do |question|
 		question.hashtags.create( title: Faker::Lorem.word )
-	end
-end
-
-#add hashtags to comments
-User.all.each do |user|
-	user.comments.each do |comment|
-		comment.hashtags.create( title: Faker::Lorem.word )
 	end
 end
 
