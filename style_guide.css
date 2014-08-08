@@ -54,20 +54,46 @@ button.primary:hover {
   box-shadow: 1px 1px 2px #1DB078;
 }
 
-button.secondary {}
+button.secondary {
+  display: inline-block;
+  border: none;
+  padding: .5em;
+  margin: 1em;
+  background: #69EEBC;
+  color: white;
+  font-size: 1em;
+  /* box-shadow: 2px 2px 1px #1DB078; */
+}
+button.secondary:hover {
+  color: #FFC470;
+  box-shadow: 1px 1px 2px #69EEBC;
+}
 
 ul {}
 ol {}
 li {}
 
 dl {}
-dt {}
-dd {}
+dt {
+  text-decoration:underline;
+}
+dd {
+  font-style:italic;
+}
 
 /* LINKS */
-
-a.primary {}
-a.secondary {}
+a{
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+}
+a.primary {
+  color: #236CAE;
+}
+a.secondary {
+  color: #72B2EC;
+}
 
 /* TABLES */
 
