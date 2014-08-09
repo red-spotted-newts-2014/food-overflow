@@ -39,7 +39,14 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-
+    @question = Question.find(params[:id])
+    if @question.delete
+      flash[:notice] = "Your question was successfully deleted."
+      redirect_to questions_url
+    else
+      flash[:notice] = "Something was wrong. Please try again."
+      render :edit
+    end
   end
 
   private
