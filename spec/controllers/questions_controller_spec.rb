@@ -1,7 +1,8 @@
 require 'rails_helper'
 
-describe QuestionsController do
-  let!(:question) { FactoryGirl.create :question }
+describe QuestionsController, type: :controller do
+  # let!(:question) { FactoryGirl.create :question }
+  # let!(:user) { FactoryGirl.create :user }
 
   it "#new" do
     get :new
@@ -10,13 +11,15 @@ describe QuestionsController do
 
   context "#create" do
     it "should create a question with valid params" do
-      expect{ question :create, question: { title: "Steak", content: "over cooked" }}
-      .to change(Question, :count).by(1)
+      expect{
+        post :create, question: { title: "Steak", content: "over cooked" }
+        }.to change(Question, :count).by(1)
     end
 
-    it "should NOT create a question with valid params" do
-      expect{ question :create, question: { title: "", content: "" }}
-      .to change(Question, :count).by(0)
+    it "should NOT create a question with invalid params" do
+      expect{
+        post :create, question: { title: "", content: "" }
+      }.not_to change(Question, :count)
     end
   end
 
@@ -32,7 +35,7 @@ describe QuestionsController do
     end
   end
 
-  it "#edit" do
+  xit "#edit" do
     get :edit
     expect(assigns(:question)).to eq Question.find question.id
   end
