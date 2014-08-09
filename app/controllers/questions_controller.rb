@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-
+    
   end
 
   def index
@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def update

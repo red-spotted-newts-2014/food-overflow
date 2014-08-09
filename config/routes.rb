@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   root 'questions#index'
 
-  resources :users, shallow: true do
-    resources :questions 
-  end
+  # resources :users, shallow: true do
+    resources :questions
+  # end
 
   resources :tags, controller: 'hashtags', only: [:index, :show]
   # You can have the root of your site routed with "root"
