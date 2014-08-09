@@ -3,8 +3,7 @@ require 'faker'
 # Create Users
 20.times do
   User.create(
-    first_name:            Faker::Name.first_name,
-    last_name:             Faker::Name.last_name,
+    name:                  Faker::Name.name,
     email:                 Faker::Internet.email,
     image_url:             "http://i.imgur.com/RcQ3bUi.jpg",
     password:              "12345678"
@@ -16,7 +15,7 @@ end
 
 #create questions
 User.all.each do |user|
-	user.questions.create( title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph ) 
+	user.questions.create( title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph )
 end
 
 #add comments to those questions
@@ -26,10 +25,10 @@ User.all.each do |user|
 	end
 end
 
-#add hashtags to questions 
+#add hashtags to questions
 tags = ['beef','pork','chicken','salads','breakfast','dinner',
 				'lunch','appetizers','desserts', 'dairy', 'tofu', 'vegetables',
-				'legumes', 'french', 'mexican', 'grains', 'vegan', 'steak', 
+				'legumes', 'french', 'mexican', 'grains', 'vegan', 'steak',
 				'fish', 'seafood', 'cookies', 'soups', 'stews', 'grilling']
 
 tags.each do |tag|
@@ -173,8 +172,3 @@ end
 #     votable_type: "Comment"
 #   )
 # end
-
-
-
-
-
