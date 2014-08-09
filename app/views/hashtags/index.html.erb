@@ -6,8 +6,11 @@
             <tr>
                 <% tag_row.each do |tag| %>
                     <td class="tag-cell">
-                        <%=link_to "#{tag.title}", tag_questions_path(tag) %>
-                
+                        <%=link_to "#{tag.title}", tag_questions_path(tag), class:"post-tag"  %>
+                        <span class="item-multiplier"><span class="item-multiplier-x">×</span>&nbsp;<span class="item-multiplier-count"><%= tag.questions.length %></span></span>
+                        <!-- <div class="excerpt"></div> -->
+
+                    </div>
                     </td>
                 <% end %>
             </tr>
@@ -17,18 +20,5 @@
     <br>
 <% end %>
 
-
             
-  <!--               <td class="tag-cell">
-                    <a href="/questions/tagged/python" class="post-tag" title="show questions tagged 'python'" rel="tag">python</a><span class="item-multiplier"><span class="item-multiplier-x">×</span>&nbsp;<span class="item-multiplier-count">329063</span></span>
-                        <div class="excerpt">Excerpt</div>
-                    <div>
-                        <div class="stats-row fl"><a href="/questions/tagged/python?sort=newest&amp;days=1" title="390 questions tagged python in the last 24 hours">390 asked today</a>, <a href="/questions/tagged/python?sort=newest&amp;days=7" title="2621 questions tagged python in the last 7 days">2621 this week</a></div>
-                        <div class="cbt"></div>
-                    </div>
-                </td>
-           
-            
-            </tr>
-    </tbody>
-</table> -->
+    
