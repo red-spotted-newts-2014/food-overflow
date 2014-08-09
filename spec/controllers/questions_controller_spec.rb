@@ -45,7 +45,8 @@ describe QuestionsController do
     end
     xit "should NOT update a question with valid params" do
       get :update
-
+      expect{ put :update, id: question.id, question: { title: ""}}
+      .not_to change{ question.title }.to("")
     end
   end
 
