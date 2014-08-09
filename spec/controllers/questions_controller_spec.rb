@@ -57,8 +57,10 @@ describe QuestionsController, type: :controller do
   end
 
   context "#destroy" do
-    xit "should delete a question" do
-      expect{ delete :destroy, id: question.id}.to change(Question, :count).by(-1)
+    it "should delete a question" do
+      expect{
+        delete :destroy, id: question.id
+        }.to change(Question, :count).by(-1)
     end
   end
 end
