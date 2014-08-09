@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   root 'questions#index'
 
   resources :users, shallow: true do
-    resources :questions
+    resources :questions 
   end
+
+  resources :tags, controller: 'hashtags', only: [:index, :show]
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
