@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-	def show
-		@users = User.all
-	end
+	# def show
+	# 	@users = User.all
+	# end
 
 	def sign_in
 	  @secret = ENV['CLIENT_ID']
