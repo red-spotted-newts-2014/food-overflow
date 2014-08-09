@@ -6,8 +6,8 @@ describe CommentsController do
 	context "#create" do
 		it "should create a comment with valid parameters" do
 			expect{
-				post :create, comment: { content: "bacon ipsum dolor sit amet", commenable_id: question.id, commentable_type: "Question" }
-			}.to change (Comment, :count).by(1)
+				post :create, comment: { content: "bacon ipsum dolor sit amet", commentable_id: question.id, commentable_type: "Question" }
+			}.to change(Comment, :count).by(1)
 		end
 	end
 end
