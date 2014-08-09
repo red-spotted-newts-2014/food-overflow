@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   root 'questions#index'
 
   # resources :users, shallow: true do
-    resources :users
-    resources :questions
+  resources :users
+  resources :questions
+  resources :comments, only: [:new, :create, :edit, :show, :update, :destroy]
   # end
 
   resources :tags, controller: 'hashtags', only: [:index, :show] do
