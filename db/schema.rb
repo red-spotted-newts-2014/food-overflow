@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140808160431) do
+ActiveRecord::Schema.define(version: 20140809010608) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -43,13 +43,13 @@ ActiveRecord::Schema.define(version: 20140808160431) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "name"
     t.string   "email"
     t.string   "password_digest"
     t.string   "image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "access_token"
   end
 
   create_table "votes", force: true do |t|
