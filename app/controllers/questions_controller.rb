@@ -27,6 +27,14 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    @question = Question.find(params[:id])
+    if @question.update_attributes(question_params)
+      flash[:notice] = "Your question was successfully updated."
+      redirect_to questions_url
+    else
+      flash[:notice] = "Something was wrong. Please try again."
+      render :edit
+    end
 
   end
 
