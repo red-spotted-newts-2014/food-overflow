@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe QuestionsController, type: :controller do
-  # let!(:question) { FactoryGirl.create :question }
+  let!(:question) { FactoryGirl.create :question }
   # let!(:user) { FactoryGirl.create :user }
 
   it "#new" do
@@ -30,13 +30,13 @@ describe QuestionsController, type: :controller do
 
   context "#show" do
     it "should have one question" do
-      get :show
+      get :show, id: question.id
       expect(assigns(:question)).to eq Question.find question.id
     end
   end
 
-  xit "#edit" do
-    get :edit
+  it "#edit" do
+    get :edit, id: question.id
     expect(assigns(:question)).to eq Question.find question.id
   end
 
