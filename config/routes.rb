@@ -8,7 +8,13 @@ Rails.application.routes.draw do
   get '/users/logout', to: 'users#logout'
 
   resources :users, shallow: true do
-    resources :questions
+    resources :questions 
+  end
+
+  resources :tags, controller: 'hashtags', only: [:index, :show] do 
+      member do 
+        get 'questions'
+      end
   end
   
 end

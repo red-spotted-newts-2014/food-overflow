@@ -1,0 +1,24 @@
+       
+<% @hashtags_tables.each do |tag_table| %>
+    <table id="tags">
+        <tbody>   
+            <% tag_table.each do |tag_row| %>
+            <tr>
+                <% tag_row.each do |tag| %>
+                    <td class="tag-cell">
+                        <%=link_to "#{tag.title}", questions_tag_path(tag), class:"post-tag"  %>
+                        <span class="item-multiplier"><span class="item-multiplier-x">×</span>&nbsp;<span class="item-multiplier-count"><%= tag.questions.length %></span></span>
+                        <!-- <div class="excerpt"></div> -->
+
+                    </div>
+                    </td>
+                <% end %>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <br>
+<% end %>
+
+            
+    
