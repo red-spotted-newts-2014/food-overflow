@@ -30,7 +30,7 @@ end
 tags = ['beef','pork','chicken','salads','breakfast','dinner',
 				'lunch','appetizers','desserts', 'dairy', 'tofu', 'vegetables',
 				'legumes', 'french', 'mexican', 'grains', 'vegan', 'steak', 
-				'fish', 'seafood', 'cookies', 'soups', 'stews' 'grilling']
+				'fish', 'seafood', 'cookies', 'soups', 'stews', 'grilling']
 
 tags.each do |tag|
 	Hashtag.create(title: tag)
