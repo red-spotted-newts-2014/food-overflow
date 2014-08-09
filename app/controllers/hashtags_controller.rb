@@ -9,4 +9,9 @@ class HashtagsController < ApplicationController
 		@hashtag = Hashtag.find(params[:id])
 	end 
 
+	def questions
+		@tag = Hashtag.find(params[:id])
+		@questions = @tag.questions
+	end
+
 end

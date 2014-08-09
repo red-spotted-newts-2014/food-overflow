@@ -6,7 +6,7 @@
             <tr>
                 <% tag_row.each do |tag| %>
                     <td class="tag-cell">
-                        <%=link_to "#{tag.title}", tag_questions_path(tag), class:"post-tag"  %>
+                        <%=link_to "#{tag.title}", questions_tag_path(tag), class:"post-tag"  %>
                         <span class="item-multiplier"><span class="item-multiplier-x">×</span>&nbsp;<span class="item-multiplier-count"><%= tag.questions.length %></span></span>
                         <!-- <div class="excerpt"></div> -->
 

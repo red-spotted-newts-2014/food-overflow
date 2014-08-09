@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   end
 
   resources :tags, controller: 'hashtags', only: [:index, :show] do 
-    resources :questions, only: :index
+      member do 
+        get 'questions'
+      end
   end
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
