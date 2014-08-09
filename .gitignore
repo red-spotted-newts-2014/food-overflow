@@ -26,3 +26,6 @@ config/secrets.yml
 
 # ignore simplecov output
 coverage
+
+# ignore environment file
+.env
