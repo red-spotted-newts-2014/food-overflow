@@ -1,10 +1,18 @@
 /* BODY */
 
-body {}
+body {
+  font-family: 'Raleway';
+  font-size: 18px;
+}
 
 /* HEADERS */
 
-h1 {}
+h1 {
+  font-size: 1.8em;
+  background-color: #69EEBC;
+  text-align: center;
+  padding: 2% 1%;
+}
 h2 {}
 h3 {}
 h4 {}
@@ -13,32 +21,150 @@ h6 {}
 
 /* FONT SIZES */
 
-.small {}
-.medium {}
-.large {}
-.x-large {}
+.x-small {
+  font-size: .75em;
+}
+
+.small {
+  font-size: 0.9em;
+}
+.medium {
+  font-size: ;
+
+}
+.large {
+  font-size: 1.05em;
+}
+.x-large {
+  font-size: 1.1em;
+}
 
 /*BUTTON AND LISTS */
 
-button.primary {}
-button.secondary {}
+button.primary {
+  display: inline-block;
+  border: none;
+  padding: .5em;
+  margin: 1em;
+  background: #1DB078;
+  color: white;
+  font-size: 1em;
+  /* box-shadow: 2px 2px 1px #1DB078; */
+}
+
+button.primary:hover {
+  color: #FFC470;
+  box-shadow: 1px 1px 2px #1DB078;
+}
+
+button.secondary {
+  display: inline-block;
+  border: none;
+  padding: .5em;
+  margin: 1em;
+  background: #69EEBC;
+  color: white;
+  font-size: 1em;
+  /* box-shadow: 2px 2px 1px #1DB078; */
+}
+button.secondary:hover {
+  color: #FFC470;
+  box-shadow: 1px 1px 2px #69EEBC;
+}
 
 ul {}
 ol {}
 li {}
 
 dl {}
-dt {}
-dd {}
+dt {
+  text-decoration:underline;
+}
+dd {
+  font-style:italic;
+}
 
 /* LINKS */
-
-a.primary {}
-a.secondary {}
+a{
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+}
+a.primary {
+  color: #236CAE;
+}
+a.secondary {
+  color: #72B2EC;
+}
 
 /* TABLES */
 
-table {}
-th {}
-tr {}
-td {}
+table {
+  border: 1px solid black;
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin: 1% auto;
+}
+th {
+  /*font-size: large;*/
+}
+tr {
+  /*font-size: 0;*/
+  /*border: 1px solid red;*/
+}
+td {
+  margin: 0 0;
+  padding: .75em;
+  border: 1px solid black;
+}
+
+/* GRID */
+
+.wide-1 {
+  display: inline-block;
+  width: 20%;
+  padding: 1%;
+  margin: 1% 1% 1%;
+  border: 1px solid black;
+}
+
+.wide-1::before {
+  content: "hello";
+}
+
+.wide-2 {
+  display: inline-block;
+  width: 44.5%;
+  padding: 1%;
+  margin: 1% 1% 1%;
+  border: 1px solid black;
+}
+
+.wide-2::before {
+  content: "hello";
+}
+
+.third-1 {
+  display: inline-block;
+  width: 28.2%;
+  padding: 1%;
+  margin: 1% 1% 1%;
+  border: 1px solid black;
+}
+
+.third-1::before {
+  content: "hello";
+}
+
+.third-2 {
+  display: inline-block;
+  width: 61.2%;
+  padding: 1%;
+  margin: 1% 1% 1%;
+  border: 1px solid black;
+}
+
+.third-2::before {
+  content: "hello";
+}
