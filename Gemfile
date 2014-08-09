@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
@@ -27,6 +28,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'faker'
+gem 'httparty'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
@@ -46,3 +48,4 @@ gem 'factory_girl_rails'
 gem 'shoulda-matchers'
 gem 'selenium-webdriver'
 gem 'database_cleaner'
+gem 'simplecov'

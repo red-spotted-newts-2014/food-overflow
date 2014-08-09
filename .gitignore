@@ -23,3 +23,9 @@ config/secrets.yml
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
 .DS_Store
+
+# ignore simplecov output
+coverage
+
+# ignore environment file
+.env
