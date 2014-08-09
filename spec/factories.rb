@@ -5,4 +5,8 @@ FactoryGirl.define do
     q.title { Faker::Lorem.word }
     q.content { Faker::Lorem.sentence }
   end
+
+  factory :hashtag do 
+  		title { Faker::Lorem.word }
+  end
 end
