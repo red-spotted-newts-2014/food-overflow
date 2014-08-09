@@ -5,15 +5,15 @@ class UsersController < ApplicationController
 	end
 
 	def sign_in
-	  @secret = ENV['CLIENT_ID']
+	  @client_id = ENV['CLIENT_ID']
 	  @state="somenonsense"
-	  redirect_to "https://github.com/login/oauth/authorize?client_id=935c620d7555e425f1bf&redirect_uri=http://127.0.0.1:3000/users/auth&scope=user&state=#{@state}"
+	  redirect_to "https://github.com/login/oauth/authorize?client_id=#{@client_id}&redirect_uri=http://127.0.0.1:3000/users/auth&scope=user&state=#{@state}"
 	end
 
 	def auth
-	  @code = params[:code]
+	  code = params[:code]
 	  state = params[:state]
-	  redirect_to "https://github.com/login/oauth/access_token?client_id=#{ENV['CLIENT_ID']}&client_secret=#{ENV['CLIENT_SECRET']}&code=@code&redirect_uri=http://127.0.0.1:3000/auth" if state == @state
+	  redirect_to "https://github.com/login/oauth/access_token?client_id=#{@client_id}&client_secret=#{ENV['CLIENT_SECRET']}&code=#{code}&redirect_uri=http://127.0.0.1:3000/auth" if state == @state
 	end
 
 	def landing_page
