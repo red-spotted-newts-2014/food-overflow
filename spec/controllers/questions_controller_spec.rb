@@ -48,9 +48,11 @@ describe QuestionsController, type: :controller do
         question.reload
       }.to change{ question.title }.from(@original_title).to("Chicken")
     end
-    xit "should NOT update a question with invalid params" do
-      expect{ put :update, id: question.id, question: { title: ""}}
-      .not_to change{ question.title }.to("")
+    it "should NOT update a question with invalid params" do
+      expect{
+        put :update, id: question.id, question: { title: ""}
+        question.reload
+        }.not_to change{ question.title }
     end
   end
 
