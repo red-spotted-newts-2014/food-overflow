@@ -1,14 +1,14 @@
 class QuestionsController < ApplicationController
   
-  	def index
-	    @questions = Question.all
-	  end
+	def index
+		@questions = Question.all
+	end
 
-  def show
-    @question = Question.find(params[:id])
-  end
+	def show
+		@question = Question.find(params[:id])
+	end
 
-  def edit
+	def edit
 
-  end
+	end
 end
