@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   def new
-    
+    @question = Question.new
   end
 
   def create
@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-
+    
   end
 
   def update
