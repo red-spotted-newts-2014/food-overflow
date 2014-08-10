@@ -7,4 +7,15 @@ class Question < ActiveRecord::Base
 
 	validates_length_of :title, minimum: 1
 	validates_length_of :content, minimum: 1
+
+
+	def info
+		spec = {}
+		spec[:tags] = hashtags.sort_by{|tag| tag.title}
+		spec[:total_votes] = votes.count_difference
+		spec[:answers] =  comments.sort_by do |comment| 
+												comment.votes.count_difference
+											end
+		spec  
+	end 
 end
