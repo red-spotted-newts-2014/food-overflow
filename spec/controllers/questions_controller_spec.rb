@@ -16,10 +16,20 @@ describe QuestionsController, type: :controller do
         }.to change(Question, :count).by(1)
     end
 
+    it "should generate a flash notice on successful creation" do
+      post :create, question: { title: "Steak", content: "Tartare" }
+      expect(flash[:notice]).to eq("Your question has been posted.")
+    end
+
     it "should NOT create a question with invalid params" do
       expect{
         post :create, question: { title: "", content: "" }
       }.not_to change(Question, :count)
+    end
+
+    it "should generate a flash notice on unsuccessful creation" do
+      post :create, question: { title: "", content: "" }
+      expect(flash[:notice]).to eq("Something was wrong. Please try again.")
     end
   end
 
@@ -61,6 +71,13 @@ describe QuestionsController, type: :controller do
       expect{
         delete :destroy, id: question.id
         }.to change(Question, :count).by(-1)
+    end
+    it "should generate a flash notice on successful deletion" do
+      delete :destroy, id: question.id
+      expect(flash[:notice]).to eq("Your question was successfully deleted.")
+    end
+    xit "should generate a flash notice on unsuccessful deletion" do
+     # MH -- not sure how to test for this. Thoughts?
     end
   end
 end
