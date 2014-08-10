@@ -10,4 +10,8 @@ feature "Votes" do
   it "#count_upvotes" do
     expect(Vote.count_upvotes).to eq(2)
   end
+
+  it "#count_downvotes" do
+    expect(Vote.count_downvotes).to eq(2)
+  end
 end
