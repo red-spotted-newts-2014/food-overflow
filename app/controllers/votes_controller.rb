@@ -2,13 +2,16 @@ class VotesController < ApplicationController
   def create
     @vote = Vote.new(vote_params)
     if @vote.save
-      redirect 
+      redirect
     else
 
     end
   end
 
   def update
+  end
+
+  def index
   end
 
   private
