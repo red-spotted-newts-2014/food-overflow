@@ -124,7 +124,7 @@ end
 # 20.times do
 
 #   Vote.create(
-#     is_upvote?:        true#,
+#     is_upvote:        true#,
 #     # votable_id:   Question.all.sample.id,
 #     # votable_type: "Question"
 #   )
@@ -133,7 +133,7 @@ end
 # 20.times do
 
 #   Vote.create(
-#     is_upvote?:        true#,
+#     is_upvote:        true#,
 #     # votable_id:   Comment.all.sample.id,
 #     # votable_type: "Comment"
 #   )
@@ -158,7 +158,7 @@ end
 # 20.times do
 
 #   Vote.create(
-#     is_upvote?:        true,
+#     is_upvote:        true,
 #     votable_id:   Question.all.sample.id,
 #     votable_type: "Question"
 #   )
@@ -167,7 +167,7 @@ end
 # 20.times do
 
 #   Vote.create(
-#     is_upvote?:        true,
+#     is_upvote:        true,
 #     votable_id:   Comment.all.sample.id,
 #     votable_type: "Comment"
 #   )
