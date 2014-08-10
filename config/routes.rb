@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   # resources :users, shallow: true do
   resources :users
-  resources :questions
-  resources :comments, only: [:new, :create, :edit, :show, :update, :destroy]
-  # end
+  resources :questions, shallow: true do
+    resources :comments
+  end
 
   resources :tags, controller: 'hashtags', only: [:index, :show] do
       member do
