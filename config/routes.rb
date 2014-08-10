@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :questions
+  resources :votes
 
   resources :tags, controller: 'hashtags', only: [:index, :show] do
       member do
