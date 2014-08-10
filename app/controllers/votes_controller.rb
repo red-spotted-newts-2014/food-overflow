@@ -13,6 +13,7 @@ class VotesController < ApplicationController
   end
 
   def index
+    @vote = Vote.new
     @votes = Vote.all
   end
 
