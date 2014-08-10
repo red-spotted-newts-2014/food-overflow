@@ -3,7 +3,7 @@
 class CommentsController < ApplicationController
 
 	def create
-		@comment = Comment.new(params[:comment])
+		@comment = Comment.new(comment_params)
 		if @comment.save
 			redirect_to root_url
 		else
@@ -12,4 +12,8 @@ class CommentsController < ApplicationController
 		end
 	end
 
+	private
+    def comment_params
+      params.require(:comment).permit!
+    end
 end
