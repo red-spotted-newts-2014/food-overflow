@@ -42,10 +42,9 @@ feature "Questions" do
       visit edit_question_path(question)
       fill_in "Title", with: "Chunky Bacon"
       fill_in "Content", with: "Ham"
-      click_on "Edit Question"
+      click_on "Update Question"
       expect(current_path).to eq questions_path
       expect(page).to have_content("Chunky Bacon")
-      expect(page).to have_content("Ham")
     end
   end
 end
