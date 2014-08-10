@@ -25,10 +25,16 @@ describe Hashtag do
 			tag = Hashtag.new(title: "fish")
 			expect(tag).to_not be_valid
 		end
-
-
 	end
 
-
-
+	context '#tagize' do
+		let!(:hashtag) { Hashtag.new(title: 'My New Hashtag') }
+		it 'is created with a title in any format' do
+			expect(hashtag.title).to eq('My New Hashtag')
+		end
+		it 'reformats title before save' do
+			hashtag.save
+			expect(hashtag.title).to eq('my-new-hashtag')
+		end
+	end
 end
