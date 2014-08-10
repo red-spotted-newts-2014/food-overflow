@@ -3,9 +3,13 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   root 'questions#index'
 
+  # resources :users, shallow: true do
   resources :users
-  resources :questions
   resources :votes
+  
+  resources :questions, shallow: true do
+    resources :comments
+  end
 
   resources :tags, controller: 'hashtags', only: [:index, :show] do
       member do
