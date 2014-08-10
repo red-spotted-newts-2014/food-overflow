@@ -1,0 +1,31 @@
+<nav>
+	<% unless session[:user_id].nil? %>
+		<a href="/users/logout">Logout</a>
+	<% else %>
+		<a href="/users/sign_in"><i class="fa fa-github"></i> Log In with GitHub</a>
+	<% end %>
+	<br>
+	<br>
+				<div class="main_bar">
+            <div class="logo">
+                <a href="/">
+                    Steak Overcooked
+                </a>
+            </div>
+            <div id="menus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li><a href="/questions">Questions</a></li>
+                        <li><a href="/tags">Tags</a></li>
+                        <li><a href="/users">Users</a></li>
+                       <!--  <li><a href="/questions">
+                        Unanswered</a></li> -->
+                        <li>
+                       <a id="nav-askquestion" href="/questions/new">Ask Question</a>
+                       </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+</nav>
