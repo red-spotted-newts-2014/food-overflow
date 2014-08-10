@@ -8,7 +8,7 @@ describe VotesController, type: :controller do
   end
 
   it "should create an downvote" do
-    let!(:vote2) { question.votes.create!(is_upvote?: false) }
-
+    expect{ post :create, vote: { is_upvote?: false }}
+    .to change(Vote.count_downvotes).by(1)
   end
 end
