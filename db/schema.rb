@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20140809010608) do
   end
 
   create_table "votes", force: true do |t|
-    t.boolean  "is_upvote?"
+    t.boolean  "is_upvote"
     t.integer  "votable_id"
     t.string   "votable_type"
     t.datetime "created_at"
