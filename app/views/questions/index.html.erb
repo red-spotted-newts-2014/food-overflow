@@ -1,6 +1,5 @@
 <h1>All Questions</h1>
 
-<% @questions = Question.all %>
 <% @questions.each do |question| %>
   <ul>
     <li><a href="<%= question_url id: question.id %>"><%= question.title %></a></li>

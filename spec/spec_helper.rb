@@ -18,6 +18,12 @@ SimpleCov.start
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+  # Use color in STDOUT
+  config.color = true
+
+  # Use color not only in STDOUT but also in pagers and files
+  config.tty = true
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
@@ -72,6 +78,7 @@ RSpec.configure do |config|
     # For more details, see:
     #   - http://teaisaweso.me/blog/2013/05/27/rspecs-new-message-expectation-syntax/
     mocks.syntax = :expect
+
 
     # Prevents you from mocking or stubbing a method that does not exist on
     # a real object. This is generally recommended.

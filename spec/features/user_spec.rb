@@ -16,4 +16,7 @@ feature "User browsing FoodOverflow" do
       expect(current_path). to eq(question_path id: question.id)
     end
   end
+
+  context "can view a single question" do
+  end
 end
