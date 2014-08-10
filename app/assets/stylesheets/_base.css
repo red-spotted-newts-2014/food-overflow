@@ -1,13 +1,38 @@
 /* BODY */
 body {
   font-family: 'Raleway';
-  font-size: 18px;
+  font-size: 18px
 }
 
+nav div {
+  display: inline-block;
+}
+
+.logo { 
+  margin:10px;
+  padding: 4px;
+  font-size: 1.2em; 
+  border-bottom: 2px solid red; 
+}
 nav a {
   color: black;
   text-decoration: none;
 }
+
+nav a:hover {
+  text-decoration: none; 
+  color: grey;
+}
+
+nav li {
+  float: left;
+  background-color: #FF988D; 
+  margin:0 5px;
+  padding: 4px;
+  font-size: 0.9em; 
+
+}
+
 
 /* HEADERS */
 
@@ -77,8 +102,12 @@ button.secondary:hover {
 }
 
 ul {}
+
 ol {}
-li {}
+
+li {
+  list-style: none;
+}
 
 dl {}
 dt {
