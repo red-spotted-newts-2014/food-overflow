@@ -3,6 +3,14 @@ require "rails_helper"
 feature "Questions" do
   let!(:user) { FactoryGirl.create :user }
 
+  context "#new" do
+    xit "is accessible from questions#index" do
+      visit questions_path
+      click_on "New"
+      expect(current_path).to eq new_question_path
+    end
+  end
+
   context "#index" do
     let!(:question) { FactoryGirl.create :question }
 
