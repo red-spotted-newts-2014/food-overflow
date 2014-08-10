@@ -10,8 +10,4 @@ describe VotesController, type: :controller do
     let!(:vote2) { question.votes.create!(is_upvote?: false) }
 
   end
-
-  it "should show the vote difference" do
-
-  end
 end
