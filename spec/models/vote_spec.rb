@@ -1,4 +1,4 @@
-require 'rails-helper'
+require 'rails_helper'
 
 feature "Votes" do
   let!(:question) { FactoryGirl.create :question }
@@ -8,6 +8,6 @@ feature "Votes" do
   let!(:vote4) { question.votes.create!(is_upvote?: false) }
 
   it "#count_upvotes" do
-    s
+    expect(Vote.count_upvotes).to eq(2)
   end
 end
