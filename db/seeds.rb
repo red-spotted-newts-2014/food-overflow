@@ -51,14 +51,14 @@ end
 #add votes to questions
 User.all.each do |user|
 	user.questions.each do |question|
-		question.votes.create( is_upvote?: true )
+		question.votes.create( is_upvote: true )
 	end
 end
 
 #add votes to comments
 User.all.each do |user|
 	user.comments.each do |comment|
-		comment.votes.create( is_upvote?: true )
+		comment.votes.create( is_upvote: true )
 	end
 end
 
@@ -124,7 +124,7 @@ end
 # 20.times do
 
 #   Vote.create(
-#     is_upvote?:        true#,
+#     is_upvote:        true#,
 #     # votable_id:   Question.all.sample.id,
 #     # votable_type: "Question"
 #   )
@@ -133,7 +133,7 @@ end
 # 20.times do
 
 #   Vote.create(
-#     is_upvote?:        true#,
+#     is_upvote:        true#,
 #     # votable_id:   Comment.all.sample.id,
 #     # votable_type: "Comment"
 #   )
@@ -158,7 +158,7 @@ end
 # 20.times do
 
 #   Vote.create(
-#     is_upvote?:        true,
+#     is_upvote:        true,
 #     votable_id:   Question.all.sample.id,
 #     votable_type: "Question"
 #   )
@@ -167,7 +167,7 @@ end
 # 20.times do
 
 #   Vote.create(
-#     is_upvote?:        true,
+#     is_upvote:        true,
 #     votable_id:   Comment.all.sample.id,
 #     votable_type: "Comment"
 #   )
