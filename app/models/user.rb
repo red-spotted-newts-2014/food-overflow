@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 	# MH: I'm pretty sure this is terrible
 	def check_password
 		unless self.access_token.nil?
-			self.password = "gh=#{access_token}"
+			self.password = "gh-#{access_token}"
 			self.password_confirmation = self.password
 		end
 		return self.password

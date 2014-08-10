@@ -1,0 +1,11 @@
+<div class="vote-box">
+  <%= form_for @vote, url: { :action => "create" } do |f| %>
+    <%= hidden_field_tag("vote[is_upvote]", "true") << \
+    f.submit("upvote") %>
+  <% end %>
+  <%= @votes.count_difference %>
+  <%= form_for @vote, url: { :action => "create" } do |f| %>
+    <%= hidden_field_tag("vote[is_upvote]", "false") << \
+    f.submit("downvote") %>
+  <% end %>
+</div>
