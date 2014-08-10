@@ -5,11 +5,11 @@ class Hashtag < ActiveRecord::Base
 	has_many :hashtag_questions
 	has_many :questions, through: :hashtag_questions
 
-	#before_save :tagize
+	before_validation :tagize
 
 
 	private 
 	def tagize
-		title.downcase!.gsub!(" ", "-")
+		self.title = self.title.downcase.gsub(" ", "-") if self.title
 	end 
 end
