@@ -28,4 +28,14 @@ feature "Questions" do
       expect(page).to have_content(question.content)
     end
   end
+
+  context "#edit" do
+    let!(:question) { FactoryGirl.create :question }
+    
+    it "it accessible from questions#show" do
+      visit question_path(question)
+      click_on "Edit"
+      expect(current_path).to eq edit_question_path(question)
+    end
+  end
 end
