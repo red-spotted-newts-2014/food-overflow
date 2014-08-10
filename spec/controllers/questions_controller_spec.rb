@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe QuestionsController, type: :controller do
   let!(:question) { FactoryGirl.create :question }
-  # let!(:user) { FactoryGirl.create :user }
+  let!(:user) { FactoryGirl.create :user }
 
   it "#new" do
     get :new
