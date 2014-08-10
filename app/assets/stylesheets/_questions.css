@@ -1,0 +1,57 @@
+
+.form_holder { 
+position: relative;
+}
+
+.tag_holder {
+	background-color: grey; 
+	width: 250px; 
+	height:80px;
+	position: absolute; 
+	left:150px;
+	display: inline-block;
+}
+
+.tag_maker {
+	display: inline-block;
+}
+
+.tag_maker input {
+margin-left: 250px; 
+}
+
+.question_form input[type=submit] {
+	display: inline-block;
+}
+
+.holder {
+ 	border: 2px, solid black;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	background-color: #FFC470; 
+	margin:1px;
+}
+
+.question_info_text {
+	font-size: .625em; 
+	display: block;
+	text-align: center;
+}
+
+.total_x_text {
+	font-size: .9em; 
+	display: block; 
+	text-align: center; 
+}
+
+
+.question_link{
+	color: #2F2AB1;
+	font-size: .9em; 
+}
+
+.question_table {
+	margin:auto 25%;
+}
+
