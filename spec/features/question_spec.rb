@@ -31,11 +31,21 @@ feature "Questions" do
 
   context "#edit" do
     let!(:question) { FactoryGirl.create :question }
-    
+
     it "it accessible from questions#show" do
       visit question_path(question)
       click_on "Edit"
       expect(current_path).to eq edit_question_path(question)
+    end
+
+    it "redirects to homepage is update is successful" do
+      visit edit_question_path(question)
+      fill_in "Title", with: "Chunky Bacon"
+      fill_in "Content", with: "Ham"
+      click_on "Edit Question"
+      expect(current_path).to eq questions_path
+      expect(page).to have_content("Chunky Bacon")
+      expect(page).to have_content("Ham")
     end
   end
 end
