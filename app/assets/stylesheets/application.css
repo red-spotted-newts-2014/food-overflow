@@ -12,6 +12,7 @@
  *
  *=require_base
  *=require_tags
+ *=require_questions
  *= require_tree .
  *= require_self
  */
