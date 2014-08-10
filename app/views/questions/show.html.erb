@@ -4,10 +4,17 @@
 
 <%= link_to "Edit", edit_question_path, class: "edit-button" %><br><br>
 
-<%= form_for :comment, url: {action: "create"} do |f| %>
-  <%= f.label :comment %><br>
-  <%= f.text_area :content %>
-  <%= hidden_field_tag(commentable_id: @question.id) %>
-  <%= hidden_field_tag(commentable_type: "Question") %>
+<%= form_for :comment, url: {action: 
+	"create", controller: "comments" } do |f| %>
+  <%= f.label :content %><br>
+  <%= f.text_area :content, size: "60x12" %>
+  <%= hidden_field_tag(:comment, :commentable_id) %>
+  <%= hidden_field_tag(:commentable_type, "Question") %>
   <br><%= f.submit %>
+<% end %><br>
+
+<h2>Comments</h2>
+
+<% @question.comments.each do |comment| %>
+	<p><%= comment.content %></p>
 <% end %>
