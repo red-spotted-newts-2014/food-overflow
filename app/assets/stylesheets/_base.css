@@ -4,6 +4,7 @@ body {
   font-size: 18px
 }
 
+
 nav div {
   display: inline-block;
 }
@@ -29,7 +30,7 @@ nav li {
   background-color: #FF988D; 
   margin:0 5px;
   padding: 4px;
-  font-size: 0.9em; 
+  font-size: 1em; 
 
 }
 
