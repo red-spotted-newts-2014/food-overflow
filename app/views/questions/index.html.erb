@@ -1,5 +1,7 @@
 <h1>All Questions</h1>
 
+<a href="<%= new_question_url %>">Ask your own!</a>
+
 <% @questions.each do |question| %>
   <ul>
     <li><a href="<%= question_url id: question.id %>"><%= question.title %></a></li>
