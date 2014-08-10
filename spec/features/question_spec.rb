@@ -23,7 +23,7 @@ feature "Questions" do
     end
 
     it "should show the title and content of a question" do
-      visit questions_path(question)
+      visit question_path(question)
       expect(page).to have_content(question.title)
       expect(page).to have_content(question.content)
     end
