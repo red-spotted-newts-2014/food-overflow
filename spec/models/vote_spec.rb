@@ -14,4 +14,8 @@ feature "Votes" do
   it "#count_downvotes" do
     expect(Vote.count_downvotes).to eq(2)
   end
+
+  it "#vote_difference" do
+    expect(Vote.vote_difference).to eq(0)
+  end
 end
