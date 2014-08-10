@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/red-spotted-newts-2014/food-overflow.svg?branch=master)](https://travis-ci.org/red-spotted-newts-2014/food-overflow)
 ## food-overflow
 =============
 
