@@ -3,6 +3,23 @@ require "rails_helper"
 feature "Questions" do
   let!(:user) { FactoryGirl.create :user }
 
+  context "#new" do
+    xit "is accessible from questions#index" do
+      visit questions_path
+      click_on "New"
+      expect(current_path).to eq new_question_path
+    end
+
+    xit "successfully creates a question with valid params" do
+      visit new_question_path
+      fill_in "Title", with: "BACON!"
+      fill_in "Content", with: "EXTRA CHUNKY PLZ"
+      click_on "Save"
+      expect(page).to have_content "BACON!"
+      expect(page).to have_content "EXTRA CHUNKY PLZ"
+    end
+  end
+
   context "#index" do
     let!(:question) { FactoryGirl.create :question }
 
