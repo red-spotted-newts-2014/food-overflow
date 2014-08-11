@@ -13,8 +13,14 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def index
+	  @client_id = ENV['client_id']
+	  @state="somenonsense"
+	  redirect_to "https://github.com/login/oauth/authorize?client_id=#{@client_id}"
+	end
+
 	def show
-		@user = User.find_by(params[:id])
+		@user = User.find(params[:id])
 	end
 
   private
