@@ -16,17 +16,14 @@ class HashtagsController < ApplicationController
 	def create
 		@title = params["key"]
 		puts @title
-		puts @tag = Hashtag.find_or_create_by(title: @title)
+		@tag = Hashtag.find_or_create_by(title: @title)
 		respond_to do |format|
     if @tag
     	puts @tag.id
     	format.json {render json: @tag.id.to_json}
-    	# respond_with @tag.id.to_json
      else
-       flash[:notice] = "Something was wrong. Please try again."
-       
+       flash[:notice] = "Something was wrong. Please try again." 
      end
-     return
     end
 	end
 
