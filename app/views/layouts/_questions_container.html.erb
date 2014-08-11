@@ -17,8 +17,10 @@
 	</tr>
 
 	<tr class="question_tags">
-		<% question.info[:tags].each do |tag|%>
-		<div class="tag"><%= link_to "#{tag.title}", questions_tag_path(tag) %></div>
+		<% if question.info[:tags] %>
+			<% question.info[:tags].each do |tag|%>
+			<div class="tag"><%= link_to "#{tag.title}", questions_tag_path(tag) %></div>
+			<% end %>
 		<% end %>
 	</tr>
 
