@@ -7,7 +7,7 @@ describe HashtagsController do
 			# MH - I think this is a feature test?
 			xit "provides the view with all hashtags" do
 				get :index 
-				expect(assigns(:hashtags)).to eq Hashtag.all
+				expect(assigns(:hashtags)).to eq Hashtag.all.sort_by{|tag| tag.title}
 			end
 		end
 

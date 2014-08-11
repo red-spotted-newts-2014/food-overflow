@@ -12,6 +12,7 @@
 		<%= f.label :content %><br>
 	  <%= f.text_area :content, placeholder: 'Details', size: "60x10"%>
 	</p>
+	<%= f.hidden_field :hashtags %>
 
 
   <%= f.submit 'Save' %>
@@ -19,5 +20,3 @@
 	<div class="tag_maker">
 		<input class= "tag_input" type="text" placeholder="Add A Tag"></div>
 </div>
-
-<div class="tag">Hello</div>
