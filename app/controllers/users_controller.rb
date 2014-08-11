@@ -1,6 +1,3 @@
-require 'dotenv'
-Dotenv.load
-
 class UsersController < ApplicationController
 	def new
 		@user = User.new
