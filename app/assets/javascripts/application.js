@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require questions
+//= require_tags
 //= require turbolinks
 //= require_tree .
