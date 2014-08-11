@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :comments, concerns: :commentable
   end
 
-  resources :tags, controller: 'hashtags', only: [:index, :show] do
+  resources :tags, controller: 'hashtags', only: [:index, :show, :create] do
       member do
         get 'questions'
       end
