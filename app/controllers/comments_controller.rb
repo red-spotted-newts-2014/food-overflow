@@ -1,5 +1,3 @@
-# resources :comments, only: [:new, :create, :edit, :show, :update, :destroy]
-
 class CommentsController < ApplicationController
 
 
@@ -35,10 +33,10 @@ class CommentsController < ApplicationController
     end
 
     def context_url(context)
-    	if Question === context
+    	if context.class == Question
     		question_path(context)
     	else
-    		comment_path(context)
+    		question_path(context.commentable)
     	end
     end
 end

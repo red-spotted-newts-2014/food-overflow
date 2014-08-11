@@ -1,4 +1,3 @@
-<h2>hello world</h2>
 <% @comment = Comment.find(params[:id]) %>
 <% if @comment.commentable_type == "Question" %>
 	<% @commentable = Question.find(@comment.commentable_id) %>
@@ -6,7 +5,7 @@
 	<%  @commentable = Comment.find(@comment.commentable_id) %>
 <% end %>
 
-<%= @commentable.title %>
+<h2><%= @commentable.title %></h2>
 <%= @commentable.content if @commentable.content %><br><br>
 <hr>
 <%= @comment.content %>
