@@ -3,16 +3,21 @@
 <% if @comment.commentable_type == "Question" %>
 	<% @commentable = Question.find(@comment.commentable_id) %>
 <% else %>
-	<%  @commentable = Comment.find(@comment.commentable_id) %>
+	<% @commentable = Comment.find(@comment.commentable_id) %>
 <% end %>
 
 <h2><%= @commentable.title %></h2>
-<%= @commentable.content if @commentable.content %><br><br>
+
+<%= @commentable.content if @commentable.content %>
+<br><br>
 <hr>
+
 <%= @comment.content %>
 
 <%= form_for [@comment, Comment.new] do |f| %>
   <%= f.label :content %><br>
   <%= f.text_area :content, size: "60x12" %>
-  <br><%= f.submit %>
-<% end %><br>
+  <br>
+	<%= f.submit %>
+<% end %>
+<br>
