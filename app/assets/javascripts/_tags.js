@@ -67,6 +67,7 @@ ValueSender.prototype.append = function(value, el, className){
 		var showDiv = new ValueSender($(".tag_holder"))
  		if(code === 13) {
  			showDiv.append($(this).val(), "div", "tag"); 
+ 			oneWordAjax("/tags",$(this).val()); 
  			$(this).val(" ")
 	}
 	});
