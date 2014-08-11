@@ -27,6 +27,6 @@
 			</ul>
 		<% end %>
 	<% end %>
-	<p><br><em>-- <a href="<%= comment_url %>" class="respond_to_comment" id="<%= comment.id %>">Respond to this answer</a></em></p>
+	<p><br><em>-- <%= link_to "Respond to this answer", comment_path(comment) %></em></p>
 
 <% end %>
