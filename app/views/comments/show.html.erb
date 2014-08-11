@@ -1,4 +1,5 @@
 <% @comment = Comment.find(params[:id]) %>
+
 <% if @comment.commentable_type == "Question" %>
 	<% @commentable = Question.find(@comment.commentable_id) %>
 <% else %>
