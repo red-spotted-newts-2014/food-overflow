@@ -23,7 +23,7 @@ feature "User browsing FoodOverflow" do
   it "can create a new user" do
     visit new_user_path
     fill_in "Name", with: "HALLO"
-    fill_in "Email", with: "more_salad@armo4lyfe.com"
+    fill_in "Email", with: "more_kabob@armo4lyfe.com"
     fill_in "Password", with: "noturks1234"
     click_on "Create User"
     expect(current_path).to eq(root_path)
