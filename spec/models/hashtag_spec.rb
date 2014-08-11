@@ -10,7 +10,7 @@ describe Hashtag do
 
 		it "is valid with a title" do 
 
-			tag = Hashtag.new(title: "fish")
+			tag = Hashtag.new(title: "catfish")
 			expect(tag).to be_valid
 		end
 
