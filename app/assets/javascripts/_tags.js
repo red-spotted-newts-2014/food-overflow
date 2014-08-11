@@ -79,4 +79,4 @@ ValueSender.prototype.append = function(value, el, className){
 // 		};
 // 		TagRelay.sendAll("/tags")
 // 	});
-// });
+});
