@@ -5,7 +5,7 @@
 <%= link_to "Edit", edit_question_path, class: "edit-button" %><br><br>
 
 <%= form_for [@question, Comment.new] do |f| %>
-  <%= f.label :content %><br>
+  <%= f.label :response %><br>
   <%= f.text_area :content, size: "60x12" %>
   <br><%= f.submit %>
 <% end %><br>
@@ -14,4 +14,19 @@
 
 <% @question.comments.each do |comment| %>
 	<p><%= comment.content %></p>
+	<% if comment.comments.any? %>
+		<% comment.comments.each do |c| %>
+			<ul>
+				<li><%= c.content %></li>
+			</ul>
+		<% end %>
+	<% end %>
+	<div class="comment_response_form" id="<%= comment.id %>">
+		<%= form_for [@question, @comment, Comment.new] do |f| %>
+		  <%= f.label :content %><br>
+		  <%= f.text_area :content, size: "60x12" %>
+		  <br><%= f.submit %>
+		<% end %><br>
+	</div>
+	<p><br><em>-- <a href="<%= comment_url %>" class="respond_to_comment" id="<%= comment.id %>">Respond to this answer</a></em></p>
 <% end %>
