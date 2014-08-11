@@ -5,7 +5,8 @@ describe "vote box" do
   let!(:question) { FactoryGirl.create :question }
 
   context "upvote" do
-    it "comes back to the votes path" do
+    # this isn't supposed to happen
+    xit "comes back to the votes path" do
       visit question_url(question)
       click_on "upvote"
       expect(current_path).to eq(votes_path)
@@ -21,7 +22,8 @@ describe "vote box" do
   end
 
   context "downvote" do
-    it "comes back to the votes path" do
+    # this isn't supposed to happen
+    xit "comes back to the votes path" do
       visit votes_path
       click_on "downvote"
       expect(current_path).to eq(votes_path)
