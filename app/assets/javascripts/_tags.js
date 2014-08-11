@@ -27,7 +27,8 @@ var oneWordAjax = function (url, word) {
 				dataType: 'json', 
 				data: { key : word},
 			})
-			.done(function() {
+			.done(function(data) {
+				return JSON.stringify(data)
 				console.log("Sent");
 			})
 			.fail(function() {
