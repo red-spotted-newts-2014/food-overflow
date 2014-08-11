@@ -1,3 +1,18 @@
+var oneWordAjax = function (url, word) {
+				$.ajax({
+				url: url,
+				type: 'Post',
+				dataType: 'json', 
+				data: { key : word},
+			})
+			.done(function() {
+				console.log("Sent ");
+			})
+			.fail(function() {
+				console.log("error");
+			});
+
+}
 
 function TagRelay() {
 	this.tags = []
@@ -10,19 +25,8 @@ TagRelay.prototype.add = function(tag) {
 TagRelay.prototype.sendAll = function(url){
 
 	for (var i = 0; i < this.tags.length; i++) {
-		var tagTitle = this.tags[i]
-			$.ajax({
-				url: url,
-				type: 'Post',
-				dataType: 'json', 
-				data: {tag: tagTitle},
-			})
-			.done(function() {
-				console.log("Sent ");
-			})
-			.fail(function() {
-				console.log("error");
-			});
+		var tag = this.tags[i]
+		oneWordAjax(url, word)
 	};
 }
 
