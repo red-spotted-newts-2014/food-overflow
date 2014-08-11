@@ -6,7 +6,7 @@ describe HashtagsController do
 		context "#index" do 
 			it "provides the view with all hashtags" do
 				get :index 
-				expect(assigns(:hashtags)).to eq Hashtag.all
+				expect(assigns(:hashtags)).to eq Hashtag.all.sort_by{|tag| tag.title}
 			end
 		end
 
