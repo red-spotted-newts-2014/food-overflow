@@ -17,8 +17,7 @@ FactoryGirl.define do
   		title { Faker::Lorem.word }
   end
 
-  factory :comment
-    do |c|
-      c.content { Faker::Lorem.sentence }
-    end
+  factory :comment do 
+      content { Faker::Lorem.sentence }
+  end
 end
