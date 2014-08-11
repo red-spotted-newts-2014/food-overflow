@@ -13,27 +13,21 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def sign_in
-	  @client_id = ENV['CLIENT_ID']
+	def index
+	  @client_id = ENV['client_id']
 	  @state="somenonsense"
-	  redirect_to "https://github.com/login/oauth/authorize?client_id=#{@client_id}&redirect_uri=http://127.0.0.1:3000/users/auth&scope=user&state=#{@state}"
+	  redirect_to "https://github.com/login/oauth/authorize?client_id=#{@client_id}"
 	end
 
 	def auth
+		p "hello"
 	  code = params[:code]
 	  state = params[:state]
 	  redirect_to "https://github.com/login/oauth/access_token?client_id=#{@client_id}&client_secret=#{ENV['CLIENT_SECRET']}&code=#{code}&redirect_uri=http://127.0.0.1:3000/auth" if state == @state
 	end
 
-	def landing_page
-	  @access_token = params[:access_token]
-	  @user = User.find_or_create_by(access_token: @access_token)
-	  session[:user_id] = @user.id
-	  redirect_to root_url
-	end
-
 	def show
-		@user = User.find_by(params[:id])
+		@user = User.find(params[:id])
 	end
 
   private

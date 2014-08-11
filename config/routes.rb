@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   # resources :users, shallow: true do
   resources :users
   resources :votes
-  
+  resources :auths
+
   concern :commentable do
     resources :comments
   end

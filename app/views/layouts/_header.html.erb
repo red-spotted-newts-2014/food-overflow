@@ -1,8 +1,8 @@
 <nav>
 	<% unless session[:user_id].nil? %>
-		<a href="/users/logout">Logout</a>
+		<%= link_to "Logout", new_auth_path %>
 	<% else %>
-		<a href="/users/sign_in"><i class="fa fa-github"></i> Log In with GitHub</a>
+		<%= link_to 'Log In with GitHub', users_path %>
 	<% end %>
 	<br>
 	<br>
