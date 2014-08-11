@@ -6,10 +6,19 @@
 
 // }; 
 
+var divSearcher = function (el) {
+	values = []; 
+	var tags = el.children()
+	for (var i = 0; i < tags.length; i++) {
+		values.push(tags[i].val()); 
+	};
+	return values
+}
+
 
 //Take Input 
 //Send to Relay 
-//Send to Dive Maker
+//Send to Div Maker
 //Trigger Relay on submit question: to ajax
 var oneWordAjax = function (url, word) {
 				$.ajax({
@@ -39,7 +48,7 @@ TagRelay.prototype.sendAll = function(url){
 
 	for (var i = 0; i < this.tags.length; i++) {
 		var tag = this.tags[i]
-		oneWordAjax(url, word)
+		oneWordAjax(url,tag)
 	};
 }
 
@@ -52,16 +61,22 @@ ValueSender.prototype.append = function(value, el, className){
 } 
 
  $(document).ready(function() {
-	console.log("done")
 	$(".tag_input").on('keyup', function(event) {
 		event.preventDefault();
 		var code = event.keyCode || event.which;
 		var showDiv = new ValueSender($(".tag_holder"))
  		if(code === 13) {
- 			console.log($(this).val())
- 			console.log(showDiv)
  			showDiv.append($(this).val(), "div", "tag"); 
  			$(this).val(" ")
 	}
 	});
-});
+
+// 	$(".question_submit").on('submit',  function(event) {
+// 		tagMaker = new TagRelay(); 
+// 		var tag_names = divSearcher($(".tag_holder"))
+// 		for (var i = 0; i < tag_names.length; i++) {
+// 			TagRelay.add(tag_names[i])
+// 		};
+// 		TagRelay.sendAll("/tags")
+// 	});
+// });

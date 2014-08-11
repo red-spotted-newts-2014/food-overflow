@@ -14,4 +14,14 @@ class HashtagsController < ApplicationController
 		@questions = @tag.questions
 	end
 
+	def create
+		@tag = Hashtag.new(title: params[:key])
+    if @tag.save
+      return
+    else
+      flash[:notice] = "Something was wrong. Please try again."
+      render :new
+    end
+	end
+
 end
