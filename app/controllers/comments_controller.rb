@@ -1,5 +1,3 @@
-# resources :comments, only: [:new, :create, :edit, :show, :update, :destroy]
-
 class CommentsController < ApplicationController
 
 
