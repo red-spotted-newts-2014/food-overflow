@@ -1,21 +1,24 @@
 require 'rails_helper'
 
 feature "Votes" do
+
   let!(:question) { FactoryGirl.create :question }
-  let!(:vote1) { question.votes.create!(is_upvote: true) }
-  let!(:vote2) { question.votes.create!(is_upvote: true) }
-  let!(:vote3) { question.votes.create!(is_upvote: false) }
-  let!(:vote4) { question.votes.create!(is_upvote: false) }
 
   it "#count_upvotes" do
-    expect(Vote.count_upvotes).to eq(2)
+    expect{
+        question.votes << Vote.create(is_upvote: true)
+      }.to change(Vote, :count_upvotes).by(1)
   end
 
   it "#count_downvotes" do
-    expect(Vote.count_downvotes).to eq(2)
+    expect{ 
+        question.votes << Vote.create(is_upvote: false)
+    }.to change(Vote, :count_downvotes).by(1)
   end
 
   it "#count_difference" do
-    expect(Vote.count_difference).to eq(0)
+    expect{ 
+        question.votes << Vote.create(is_upvote: false)
+    }.to change(Vote, :count_difference).by(-1)
   end
 end

@@ -16,7 +16,6 @@ feature "Questions" do
       fill_in "Content", with: "EXTRA CHUNKY PLZ"
       click_on "Save"
       expect(page).to have_content "BACON!"
-      # expect(page).to have_content "EXTRA CHUNKY PLZ"
     end
   end
 
