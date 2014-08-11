@@ -10,7 +10,9 @@ describe "vote box" do
 
     it "creates an upvote" do
       visit votes_path
-      expect{click_on "upvote"}.to change{ Vote.count_upvotes }.by(1)
+      expect{
+        click_on "upvote"
+      }.to change(Vote, :count_upvotes).by(1)
     end
   end
 
@@ -23,7 +25,7 @@ describe "vote box" do
 
     it "creates a downvote" do
       visit votes_path
-      expect{click_on "downvote"}.to change{ Vote.count_downvotes }.by(1)
+      expect{click_on "downvote"}.to change(Vote, :count_downvotes).by(1)
     end
   end
 end
