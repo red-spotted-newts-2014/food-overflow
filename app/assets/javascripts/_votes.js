@@ -16,6 +16,7 @@ $(document).ready(function() {
 		})
 		.done(function(response) {
 			console.log("success");
+			$(".voter").css("background-color", "#FFC470")
 			self.css( "background-color", "yellow" )
 		})
 		.fail(function() {
