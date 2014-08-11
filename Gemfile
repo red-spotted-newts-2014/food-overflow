@@ -50,3 +50,4 @@ gem 'shoulda-matchers'
 gem 'selenium-webdriver'
 gem 'database_cleaner'
 gem 'simplecov'
+gem 'rails_12factor', group: :production
