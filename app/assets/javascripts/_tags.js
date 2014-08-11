@@ -1,7 +1,15 @@
+// function InputKicker(event) {
+// 		this.input = input_object;
+// };
+
+// InputKicker.addEvent(event) = function() {
+
+// }; 
+
 var oneWordAjax = function (url, word) {
 				$.ajax({
 				url: url,
-				type: 'Post',
+				type: 'POST',
 				dataType: 'json', 
 				data: { key : word},
 			})
@@ -30,14 +38,18 @@ TagRelay.prototype.sendAll = function(url){
 	};
 }
 
+function ValueSender (location) {
+		this.location = location
+}
 
-// $(document).ready(function() {
-// 	console.log("done")
-// 	$(".tag_input").on('keyup', function(event) {
-// 		event.preventDefault();
-// 		var code = event.keyCode || event.which;
-//  		if(code === 13) {
-// 		console.log($(this).val())
-// 	}
-// 	});
-// });
+ $(document).ready(function() {
+	console.log("done")
+	$(".tag_input").on('keyup', function(event) {
+		event.preventDefault();
+		var code = event.keyCode || event.which;
+ 		if(code === 13) {
+ 			sendValue($this).val())
+		console.log($(this).val())
+	}
+	});
+});
