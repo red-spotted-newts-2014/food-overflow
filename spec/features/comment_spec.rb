@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'Comments' do
 	let!(:user) { FactoryGirl.create :user }
 	let!(:question) { FactoryGirl.create :question }
+	let!(:comment) { FactoryGirl.create :comment }
 
 	context "question comments" do
 		it "is accessible from questions#show" do
@@ -26,6 +27,13 @@ feature 'Comments' do
 			end
 			click_button 'Create Comment'
 			expect(current_path).to eq(root_path)
+		end
+	end
+
+	context "question comments" do
+		it "is accessible from comments#show" do
+			visit comment_url(comment)
+			expect(page).to have_selector('form')
 		end
 	end
 end
