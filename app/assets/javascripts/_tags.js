@@ -43,24 +43,25 @@ TagRelay.prototype.sendAll = function(url){
 	};
 }
 
-function ValueShower (location) {
+function ValueSender (location) {
 		this.location = location
 }
 
-ValueShower.prototype.append = function(value, el, className){
-	location.append("<"+el+" class="+className+">"+value+"</"+el+">")
+ValueSender.prototype.append = function(value, el, className){
+	this.location.append("<"+el+" class="+className+">"+value+"</"+el+">")
 } 
 
-
-function ValueForm
  $(document).ready(function() {
 	console.log("done")
 	$(".tag_input").on('keyup', function(event) {
 		event.preventDefault();
 		var code = event.keyCode || event.which;
+		var showDiv = new ValueSender($(".tag_holder"))
  		if(code === 13) {
- 			sendValue($this).val())
-		console.log($(this).val())
+ 			console.log($(this).val())
+ 			console.log(showDiv)
+ 			showDiv.append($(this).val(), "div", "tag"); 
+ 			$(this).val(" ")
 	}
 	});
 });
