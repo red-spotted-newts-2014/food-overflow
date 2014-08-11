@@ -12,7 +12,11 @@ class Question < ActiveRecord::Base
 	def info
 		spec = {}
 		spec[:tags] = hashtags.sort_by{|tag| tag.title} unless hashtags.empty?
-		spec[:total_votes] = votes.count_difference
+		if votes.any?
+			spec[:total_votes] = votes.count_difference
+		else
+			spec[:total_votes] = 0
+		end
 		spec[:answers] =  comments.sort_by do |comment| 
 												comment.votes.count_difference
 											end
