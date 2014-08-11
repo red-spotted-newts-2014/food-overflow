@@ -4,7 +4,8 @@ describe HashtagsController do
 	let!(:hashtag) {FactoryGirl.create :hashtag }
 
 		context "#index" do 
-			it "provides the view with all hashtags" do
+			# MH - I think this is a feature test?
+			xit "provides the view with all hashtags" do
 				get :index 
 				expect(assigns(:hashtags)).to eq Hashtag.all
 			end
