@@ -2,7 +2,7 @@
 	<% unless session[:user_id].nil? %>
 		<%= link_to "Logout", new_auth_path %>
 	<% else %>
-		<%= link_to 'Log In with GitHub', users_sign_in_path %>
+		<i class="fa fa-github"></i> <%= link_to 'Log In with GitHub', users_sign_in_path %>
 	<% end %>
 	<br>
 	<br>
