@@ -7,8 +7,12 @@ Rails.application.routes.draw do
   resources :users
   resources :votes
   
-  resources :questions, shallow: true do
+  concern :commentable do
     resources :comments
+  end
+
+  resources :questions, shallow: true do
+    resources :comments, concerns: :commentable
   end
 
   resources :tags, controller: 'hashtags', only: [:index, :show] do
