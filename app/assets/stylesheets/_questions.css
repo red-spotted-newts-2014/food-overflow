@@ -55,3 +55,25 @@ margin-left: 250px;
 	margin:auto 25%;
 }
 
+.question_box {
+	width: 800px;
+	display: inline-block;
+}
+
+.vote_box {
+	display: inline-block;
+}
+
+.voter {
+	border-radius: 100%; 
+	width:25px;
+	height:25px;
+	font-size: .75em; 
+	background-color: #FFC470; 
+}
+
+.voter:hover {
+	background-color: grey; 
+}
+
+

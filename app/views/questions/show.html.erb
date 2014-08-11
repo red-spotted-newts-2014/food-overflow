@@ -1,8 +1,13 @@
 <h1><%= @question.title %></h1>
 
-<p><%= @question.content %></p>
-
-<%= link_to "Edit", edit_question_path, class: "edit-button" %><br><br>
+<div class="vote_box">
+	<div class="voter up" data-route="q-<%= "#{@question.id}" %>"></div>
+	<div class="voter down" data-route="q- <%= "#{@question.id}" %>"></div>
+</div>
+<div class="question_box"><%= @question.content %></div>
+<br>
+<br>
+<div><%= link_to "Edit", edit_question_path, class: "edit-button" %></div><br><br>
 
 <%= form_for [@question, Comment.new] do |f| %>
   <%= f.label :content %><br>
@@ -13,5 +18,5 @@
 <h2>Comments</h2>
 
 <% @question.comments.each do |comment| %>
-	<p><%= comment.content %></p>
+	<%= comment.content %>
 <% end %>
