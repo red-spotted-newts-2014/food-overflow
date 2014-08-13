@@ -1,10 +1,9 @@
 class CommentsController < ApplicationController
-
-
 	def new
 		@context = context
 		@comment = @context.comments.new(comment_params)
 	end
+
 	def create
 		@context = context
 		@comment = @context.comments.new(comment_params)
@@ -23,11 +22,8 @@ class CommentsController < ApplicationController
 
     def context
     	if params[:question_id]
-    		# not sure if the line below this is necessary
-    		# id = params[:question_id]
     		Question.find(params[:question_id])
     	else
-    		# id = params[:comment_id]
     		Comment.find(params[:comment_id])
     	end
     end

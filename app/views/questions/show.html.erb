@@ -1,34 +1,37 @@
 <h1><%= @question.title %></h1>
 <div id="questions-container">
 
-<div class="vote_box">
-	<div class="voter up" data-true="true" data-route="q-<%= "#{@question.id}" %>"></div>
-	<div class="voter down" data-true="false" data-route="q- <%= "#{@question.id}" %>"></div>
-</div>
-<div class="question_box"><%= @question.content %></div>
-<br>
-<br>
-<div><%= link_to "Edit", edit_question_path, class: "edit-button" %></div><br><br>
+	<div class="vote_box">
+		<div class="voter up" data-true="true" data-route="q-<%= "#{@question.id}" %>"></div>
+		<div class="voter down" data-true="false" data-route="q- <%= "#{@question.id}" %>"></div>
+	</div>
 
-<%= form_for [@question, Comment.new] do |f| %>
-  <%= f.label :content %><br>
-  <%= f.text_area :content, size: "60x12" %>
-  <br><%= f.submit %>
-<% end %><br>
+	<div class="question_box"><%= @question.content %></div>
+	<br><br>
+	<div><%= link_to "Edit", edit_question_path, class: "edit-button" %></div>
+	<br><br>
 
-<h2>Comments</h2>
-
-<% @question.comments.each do |comment| %>
-
-	<p><%= comment.content %></p>
-	<% if comment.comments.any? %>
-		<% comment.comments.each do |c| %>
-			<ul>
-				<li><%= c.content %></li>
-			</ul>
-		<% end %>
+	<%= form_for [@question, Comment.new] do |f| %>
+	  <%= f.label :content %><br>
+	  <%= f.text_area :content, size: "60x12" %>
+	  <br>
+		<%= f.submit %>
 	<% end %>
-	<p><br><em>-- <%= link_to "Respond to this answer", comment_path(comment) %></em></p>
+	<br>
 
-<% end %>
+	<h2>Comments</h2>
+
+	<% @question.comments.each do |comment| %>
+		<p><%= comment.content %></p>
+
+		<% if comment.comments.any? %>
+			<% comment.comments.each do |c| %>
+				<ul>
+					<li><%= c.content %></li>
+				</ul>
+			<% end %>
+		<% end %>
+
+		<p><br><em>-- <%= link_to "Respond to this answer", comment_path(comment) %></em></p>
+	<% end %>
 </div>

@@ -1,13 +1,12 @@
-
-
 $(document).ready(function() {
-
 	$(".voter").on('click', function(event) {
 		event.preventDefault();
+
 		var userVote = {}
-			  userVote["is_upvote"] = $(this).data("true"); 
-				userVote["owner"] = $(this).data("route"); 
+			  userVote["is_upvote"] = $(this).data("true");
+				userVote["owner"] = $(this).data("route");
 		var self = $(this)
+		
 		$.ajax({
 			url: '/votes',
 			type: 'POST',
