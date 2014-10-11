@@ -1,10 +1,8 @@
 <h1><%= @question.title %></h1>
 <div id="questions-container">
 
-<div class="vote_box">
-	<div class="voter up" data-true="true" data-route="q-<%= "#{@question.id}" %>"></div>
-	<div class="voter down" data-true="false" data-route="q- <%= "#{@question.id}" %>"></div>
-</div>
+<%= render partial: "shared/vote_box", locals: {:id => @question.id, :route => 'q' } %>
+
 <div class="question_box"><%= @question.content %></div>
 <br>
 <br>
