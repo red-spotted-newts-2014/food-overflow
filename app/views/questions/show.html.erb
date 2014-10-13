@@ -1,32 +1,40 @@
-<h1><%= @question.title %></h1>
-<div id="questions-container">
 
-<%= render partial: "shared/vote_box", locals: {:id => @question.id, :route => 'q' } %>
+<div class="questions_container">
 
-<div class="question_box"><%= @question.content %></div>
-<br>
-<br>
-<div><%= link_to "Edit", edit_question_path, class: "edit-button" %></div><br><br>
+  <h1><%= @question.title %></h1>
 
-<%= form_for [@question, Comment.new] do |f| %>
-  <%= f.label :content %><br>
-  <%= f.text_area :content, size: "60x12" %>
-  <br><%= f.submit %>
-<% end %><br>
+  <div class="question_holder">
 
-<h2>Comments</h2>
+    <div class="question_content">
+      <%= @question.content %>
+    </div>
 
-<% @question.comments.each do |comment| %>
+    <div class="question_details_holder">
+      <%= render partial: "shared/vote_box", locals: {:id => @question.id, :route => 'q', votes: @question.info[:total_votes] } %>
+      <%= render partial: "shared/user_specs", locals: {name: @question.user.name}  %>
+    </div>
 
-	<p><%= comment.content %></p>
-	<% if comment.comments.any? %>
-		<% comment.comments.each do |c| %>
-			<ul>
-				<li><%= c.content %></li>
-			</ul>
-		<% end %>
-	<% end %>
-	<p><br><em>-- <%= link_to "Respond to this answer", comment_path(comment) %></em></p>
+  </div>
+  <%= form_for [@question, Comment.new] do |f| %>
+    <%= f.label :content %><br>
+    <%= f.text_area :content, size: "60x12" %>
+    <br><%= f.submit %>
+  <% end %><br>
 
+
+  <h2>Comments</h2>
+
+  <% @question.comments.each do |comment| %>
+
+  	<p><%= comment.content %></p>
+  	<% if comment.comments.any? %>
+  		<% comment.comments.each do |c| %>
+  			<ul>
+  				<li><%= c.content %></li>
+  			</ul>
+  		<% end %>
+  	<% end %>
+  	<p><br><em>-- <%= link_to "Respond to this answer", comment_path(comment) %></em></p>
 <% end %>
+
 </div>

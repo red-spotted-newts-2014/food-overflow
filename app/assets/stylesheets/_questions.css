@@ -1,12 +1,12 @@
 
-.form_holder { 
+.form_holder {
 position: relative;
 }
 
 .tag_holder {
-	width: 250px; 
+	width: 250px;
 	height:80px;
-	position: absolute; 
+	position: absolute;
 	left:150px;
 	display: inline-block;
 }
@@ -16,7 +16,7 @@ position: relative;
 }
 
 .tag_maker input {
-margin-left: 250px; 
+margin-left: 250px;
 }
 
 .question_form input[type=submit] {
@@ -28,51 +28,95 @@ margin-left: 250px;
 	display: inline-block;
 	width: 50px;
 	height: 50px;
-	background-color: #FFC470; 
+	background-color: #FFC470;
 	margin:1px;
 }
 
 .question_info_text {
-	font-size: .625em; 
+	font-size: .625em;
 	display: block;
 	text-align: center;
 }
 
 .total_x_text {
-	font-size: .9em; 
-	display: block; 
-	text-align: center; 
+	font-size: .9em;
+	display: block;
+	text-align: center;
 }
 
 
 .question_link{
 	color: #2F2AB1;
-	font-size: .9em; 
+	font-size: .9em;
 }
 
 .question_table {
 	margin:auto 25%;
 }
 
-.question_box {
-	width: 800px;
-	display: inline-block;
+.questions_container{
+	margin: 0 10%;
 }
+
+.question_holder {
+	border-top: 2px solid black;
+	/*background-color: gainsboro;*/
+}
+
+.question_content {
+	top: 0px;
+	display: inline-block;
+	padding-top: 10px;
+	width: 75%;
+}
+
+.question_details_holder {
+	vertical-align: top;
+/*	background-color: lightyellow;*/
+	display: inline-block;
+	width:150px;
+}
+
+.user_specs{
+height: 200px;
+/*background-color: lightblue;*/
+font-size: .75em;
+}
+
 
 .vote_box {
 	display: inline-block;
+	width: 65px;
+	position: relative;
+}
+
+.vote_button_holder {
+	display: inline-block;
+	position: relative;
+	width: 15%;
+	bottom: -15px;
+}
+
+.vote_holder {
+	position: relative;
+	display: inline-block;
+	font-size: 2em;
+	text-align: center;
+	width: 60%;
+	line-height: 60px;
 }
 
 .voter {
-	border-radius: 100%; 
-	width:25px;
+	border-radius: 25%;
+	width:10px;
+	margin:2px;
 	height:25px;
-	font-size: .75em; 
-	background-color: #FFC470; 
+	font-size: .75em;
+	background-color: #FFC470;
 }
 
 .voter:hover {
-	background-color: grey; 
+	background-color: grey;
 }
 
 
