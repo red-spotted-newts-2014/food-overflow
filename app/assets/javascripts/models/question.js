@@ -6,5 +6,14 @@ app.Question = Backbone.Model.extend({
     title: "",
     content: "",
     user_id: 1
-  }
+  },
+
+  getTitle: function(){
+    return this.title
+  },
+
+  getContent: function(){
+    return this.content
+  },
+
 });
