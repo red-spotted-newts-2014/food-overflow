@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require questions
 //=require_votes
 //= require_tags
 //= require_tree .
