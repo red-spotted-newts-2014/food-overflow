@@ -1,19 +1,1 @@
-<div id="questions-container">
-	<div class="form_holder">
-		<div class="tag_holder"></div>
-	<%= form_for :question, url: {action: "create" }, html: {class: "question_form"} do |f| %>
-		<p>
-			<%= f.label :title %><br>
-	  	<%= f.text_field :title, placeholder: 'Topic' %>
-		</p>
-		<p>
-			<%= f.label :content %><br>
-		  <%= f.text_area :content, placeholder: 'Details', size: "60x10"%>
-		</p>
 
-	  <%= f.submit 'Save' %>
-	<% end %>
-		<div class="tag_maker">
-			<input class= "tag_input" type="text" placeholder="Add A Tag"></div>
-	</div>
-</div>
