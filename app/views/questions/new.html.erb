@@ -23,3 +23,20 @@
 		<footer></footer>
 	</section>
 </div>
+
+  <script type="text/template" id="question_template">
+    <div class="question_view">
+    <label>{{title}}</label>
+		<textarea class="new_content" placeholder="Details?" cols="75" rows="5" autofocus></textarea>
+      <button class="destroy"></button>
+    </div>
+    <input class="edit" value="{{title}}">
+  </script>
+
+    <script type="text/template" id="tag_template">
+    <div class="tag_view">
+      <label>{{name}}</label>
+      <button class="destroy"></button>
+    </div>
+    <input class="edit" value="{{name}}">
+  </script>
