@@ -1,9 +1,25 @@
-<section id="question_builder">
-<header class="question_header">
-	<h1>New Question</h1>
-	<input class="new_question" placeholder="What would you like to know?">
-</header>
-</section>
-<section id="tag_builder">
-	<header></header>
-</section>
+<div class="questionapp">
+
+	<section id="question_builder">
+		<header class="question_header">
+			<h1>New Question</h1>
+			<textarea class="new_question" placeholder="What would you like to know?" cols="75" rows="1" autofocus></textarea>
+			<button>Formulate</button>
+		</header>
+			<section class="formulated_question">
+			</section>
+			<footer> </footer>
+	</section>
+
+
+	<section id="tag_builder" class="hidden">
+		<header class="tag_header">
+			<h2>Tags</h2>
+			<input class="new_tag" placeholder="Any Tags?" autofocus>
+		</header>
+		<section class="tags_main">
+			<ul class="tag_list"></ul>
+		</section>
+		<footer></footer>
+	</section>
+</div>
