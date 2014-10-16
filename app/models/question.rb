@@ -4,6 +4,7 @@ class Question < ActiveRecord::Base
 	has_many :votes, as: :votable
 	has_many :hashtag_questions
 	has_many :hashtags, through: :hashtag_questions
+	accepts_nested_attributes_for :hashtags
 
 	validates_length_of :title, minimum: 1
 	validates_length_of :content, minimum: 1
@@ -17,9 +18,9 @@ class Question < ActiveRecord::Base
 		else
 			spec[:total_votes] = 0
 		end
-		spec[:answers] =  comments.sort_by do |comment| 
+		spec[:answers] =  comments.sort_by do |comment|
 												comment.votes.count_difference
 											end
-		spec  
-	end 
+		spec
+	end
 end
