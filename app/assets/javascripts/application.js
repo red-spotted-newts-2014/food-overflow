@@ -12,6 +12,4 @@
 //
 //= require jquery
 //= require jquery_ujs
-//=require_votes
-//= require_tags
-//= require_tree .
+//= require_tree ./global
