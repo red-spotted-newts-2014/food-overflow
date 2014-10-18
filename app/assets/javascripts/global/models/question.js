@@ -2,6 +2,8 @@ var app = app || {};
 
 app.Question = Backbone.Model.extend({
 
+  url: '/questions',
+
   defaults: {
     title: "",
     content: "",
