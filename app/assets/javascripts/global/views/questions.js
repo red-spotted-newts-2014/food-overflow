@@ -2,13 +2,23 @@ app = app || {};
 
 app.QuestionView = Backbone.View.extend({
 
-  template: _.template( $('#question_template').html() ),
+  events: {
+    'submit .question_form': 'submitQuestion',
+  },
 
-  events: {},
+  initializeTemplates: function(){
+    _.templateSettings = { interpolate: /\{\{(.+?)\}\}/g };
+    this.template = _.template( $('#question_template').html() )
+  },
 
-  initialize: function(){},
+  initialize: function(){
+    this.initializeTemplates();
+  },
 
-  render: function(){}
+  render: function(){},
 
+  submitQuestion: function(e){
+    e.preventDefault()
+  }
 
 });
