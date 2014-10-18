@@ -18,9 +18,20 @@ app.QuestionView = Backbone.View.extend({
     this.$form = $(".question_form");
     this.$show = $(".formulated_question")
     this.model = new app.Question();
+
+    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model, 'sync', this.exitForm);
   },
 
-  render: function(){},
+  render: function(){
+    this.$show.html(this.template(this.model.attributes));
+  },
+
+  exitForm: function(){
+    this.$title = $(".new_question").val("");
+    this.$content = $(".new_content").val("");
+    this.$form.hide();
+  },
 
   submitQuestion: function(e){
     e.preventDefault()
