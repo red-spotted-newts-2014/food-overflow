@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/users/auth', to: 'users#landing_page'
 
   # resources :users, shallow: true do
+  resources :sessions
   resources :users
   resources :votes
   resources :auths
