@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     if @question.save
       flash[:notice] = "Your question has been posted."
-      redirect_to questions_url
+        render json: @question.to_json
     else
       flash[:notice] = "Something was wrong. Please try again."
       render :new
