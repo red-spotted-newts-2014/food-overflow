@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
     else
       flash[:notice] = "Invalid login!"
       render :new
+    end
   end
 
   def logout
