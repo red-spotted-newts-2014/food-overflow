@@ -1,29 +1,8 @@
-<table class="question_table">
-<tbody>
 
-<% @questions.each do |question| %>
-
-	<div class="holder question_votes">
-							<span class="total_x_text"><%= question.info[:total_votes] %></span>
-				<span class="question_info_text">Votes</span>
-	</div>
-	<div class="holder question_answers">
-					<span class="total_x_text"><%=  question.info[:answers].length %></span>
-				<span class="question_info_text">Answers</span>
-	</div>
-	<tr>
-		<a class="question_link" href="<%= question_url id: question.id %>"><%= question.title %></a>
-	</tr>
-
-	<tr class="question_tags">
-		<% if question.info[:tags] %>
-			<% question.info[:tags].each do |tag|%>
-			<div class="tag"><%= link_to "#{tag.title}", questions_tag_path(tag) %></div>
-			<% end %>
-		<% end %>
-	</tr>
-
-	<br>
-<% end %>
-</tbody>
 </table>
+<tr class="question_row">
+<td class="holder question_votes"></td>
+<td class="holder question_answers"></td>
+<td class="question_index_content"></td>
+<td class="question_index_tags"></td>
+</tr>
