@@ -9,6 +9,9 @@ class Question < ActiveRecord::Base
 	validates_length_of :title, minimum: 1
 	validates_length_of :content, minimum: 1
 
+	def self.order_by_votes
+		all.sort_by {|question| question.votes.count_difference}.reverse!
+	end
 
 	def info
 		spec = {}

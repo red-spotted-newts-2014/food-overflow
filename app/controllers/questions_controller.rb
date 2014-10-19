@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all
+    @questions = Question.order_by_votes
   end
 
   def show
