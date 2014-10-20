@@ -1,4 +1,4 @@
-
+/*NEW*/
 .questionapp {
 margin: 0 5%;
 position:relative;
@@ -35,59 +35,62 @@ position:relative;
 position: relative;
 }
 
-.tag_holder {
-	width: 250px;
-	height:80px;
-	position: absolute;
-	left:150px;
-	display: inline-block;
-}
-
-.tag_maker {
-	display: inline-block;
-}
-
-.tag_maker input {
-margin-left: 250px;
-}
-
 .question_form input[type=submit] {
 	display: inline-block;
 }
 
+/*Index*/
+
+.questions_container{
+	margin-left: 5%;
+}
+.questions_container h1 {
+  padding: 20px 10px;
+  margin-left: 0;
+}
+
+.question_table {
+  border: 0;
+  margin:1% 0;
+  width:90%;
+}
+
+.question_row {
+  border-bottom: 1px solid teal;
+  border-left: 4px solid teal;
+  background-color: snow;
+  background-image: linear-gradient(
+    to top right,
+    snow, white);
+
+}
+.question_break{
+  height:10px;
+}
+
+
 .holder {
- 	border: 2px, solid black;
-	display: inline-block;
-	width: 50px;
-	height: 50px;
-	background-color: #FFC470;
-	margin:1px;
+  display: inline-block;
+  margin:1px;
+  width: 50px;
+}
+
+.question_totals {
+  font-size: .9em;
+  display: block;
+  text-align: center;
 }
 
 .question_info_text {
-	font-size: .625em;
-	display: block;
-	text-align: center;
-}
-
-.total_x_text {
-	font-size: .9em;
-	display: block;
-	text-align: center;
+  font-size: .625em;
+  display: block;
+  text-align: center;
 }
 
 
 .question_link{
-	color: #2F2AB1;
-	font-size: .9em;
-}
-
-.question_table {
-	margin:auto 25%;
-}
-
-.questions_container{
-	margin: 0 10%;
+  color: maroon;
+  font-size: .9em;
 }
 
 .question_holder {
@@ -114,43 +117,6 @@ height: 200px;
 /*background-color: lightblue;*/
 font-size: .75em;
 }
-
-
-.vote_box {
-	display: inline-block;
-	width: 65px;
-	position: relative;
-}
-
-.vote_button_holder {
-	display: inline-block;
-	position: relative;
-	width: 15%;
-	bottom: -15px;
-}
-
-.vote_holder {
-	position: relative;
-	display: inline-block;
-	font-size: 2em;
-	text-align: center;
-	width: 60%;
-	line-height: 60px;
-}
-
-.voter {
-	border-radius: 25%;
-	width:10px;
-	margin:2px;
-	height:25px;
-	font-size: .75em;
-	background-color: #FFC470;
-}
-
-.voter:hover {
-	background-color: grey;
-}
-
 
 .comment_response_form {
 	display: none;

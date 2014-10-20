@@ -1,3 +1,14 @@
+.zero {
+ color:grey;
+}
+
+.positive {
+  color:black;
+}
+
+.negative {
+  color:red;
+}
 .vote_box {
   display: inline-block;
   width: 65px;

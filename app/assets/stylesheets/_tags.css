@@ -5,16 +5,22 @@ background-color:	#FFD0AA;
 }
 
 .tag-cell {
-	border: 2px solid black; 
+	border: 2px solid black;
 	margin: auto;
 }
 
 
 .tag {
-	background-color: #CFCFCF; 
+	background-color: darkseagreen;
+  color:dimgrey;
+  border:2px solid green;
 	display: inline;
 	padding:5px 7px;
-	font-size: .725em; 
+	font-size: .725em;
 	display: inline-block;
-	margin: 0px 2px;
+	margin: 2px 2px;
+}
+
+.tag a {
+  color: dimgrey;
 }
