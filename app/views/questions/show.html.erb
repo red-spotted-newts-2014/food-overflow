@@ -1,25 +1,29 @@
 
 <div class="questions_container">
 
-  <h1><%= @question.title %></h1>
+  <h1><span class="title"><%= @question.title %></span></h1>
 
   <div class="question_holder">
 
-    <div class="question_content">
+    <div class="question_content_holder">
+      <div class="question_details_holder">
+        <%= render partial: "shared/vote_box", locals: {:id => @question.id, :route => 'q', votes: @question.info[:total_votes] } %>
+        <%= render partial: "shared/user_specs", locals: {name: @maker}  %>
+      </div>
+      <span class="content">
       <%= @question.content %>
+      </span>
     </div>
 
-    <div class="question_details_holder">
-      <%= render partial: "shared/vote_box", locals: {:id => @question.id, :route => 'q', votes: @question.info[:total_votes] } %>
-      <%= render partial: "shared/user_specs", locals: {name: @question.user.name}  %>
-    </div>
 
   </div>
   <%= form_for [@question, Comment.new] do |f| %>
-    <%= f.label :content %><br>
-    <%= f.text_area :content, size: "60x12" %>
-    <br><%= f.submit %>
-  <% end %><br>
+  <br>
+    <%= f.text_area :content, size: "60x5", class:"new_comment_content", placeholder:"Your Comment" %>
+    <br>
+    <%= f.submit %>
+  <% end %>
+  <br>
 
 
   <h2>Comments</h2>
@@ -35,6 +39,6 @@
   		<% end %>
   	<% end %>
   	<p><br><em>-- <%= link_to "Respond to this answer", comment_path(comment) %></em></p>
-<% end %>
+  <% end %>
 
 </div>
