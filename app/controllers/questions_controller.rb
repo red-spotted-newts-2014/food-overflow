@@ -20,6 +20,11 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    if @question.user.nil?
+      @maker = "Anonymous"
+    else
+    @maker = @question.user.name
+  end
   end
 
   def edit
