@@ -1,5 +1,5 @@
 .zero {
- color:grey;
+  color:grey;
 }
 
 .positive {
@@ -33,9 +33,9 @@
 }
 
 .up:hover {
-background-color: olivedrab;
+  background-color: olivedrab;
 }
 
 .down:hover{
-background-color: rosybrown;
+  background-color: rosybrown;
 }

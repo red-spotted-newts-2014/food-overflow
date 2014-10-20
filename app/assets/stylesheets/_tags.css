@@ -1,24 +1,24 @@
 
 
 #tags	{
-background-color:	#FFD0AA;
+  background-color:	#FFD0AA;
 }
 
 .tag-cell {
-	border: 2px solid black;
-	margin: auto;
+  border: 2px solid black;
+  margin: auto;
 }
 
 
 .tag {
-	background-color: darkseagreen;
+  background-color: darkseagreen;
   color:dimgrey;
   border:2px solid green;
-	display: inline;
-	padding:5px 7px;
-	font-size: .725em;
-	display: inline-block;
-	margin: 2px 2px;
+  display: inline;
+  padding:5px 7px;
+  font-size: .725em;
+  display: inline-block;
+  margin: 2px 2px;
 }
 
 .tag a {

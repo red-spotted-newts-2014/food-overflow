@@ -1,7 +1,7 @@
 
 .questionapp {
-margin: 0 5%;
-position:relative;
+  margin: 0 5%;
+  position:relative;
 }
 
 .questionapp textarea::-webkit-textarea-placeholder {
@@ -32,15 +32,15 @@ position:relative;
 }
 
 .form_holder {
-position: relative;
+  position: relative;
 }
 
 .question_form input[type=submit] {
-	display: inline-block;
+  display: inline-block;
 }
 
 .questions_container{
-	margin-left: 5%;
+  margin-left: 5%;
 }
 .questions_container h1 {
   padding: 20px 10px 0 10px;
@@ -93,16 +93,15 @@ position: relative;
 }
 
 .question_holder {
-	border-top: 2px solid lightgrey;
+  border-top: 2px solid lightgrey;
 }
 
 .question_content_holder {
-
-	top: 0px;
+  top: 0px;
   font-family: "Alegreya", serif;
-	display: inline-block;
-	padding: 10px 10px 0 10px;
-	width: 55%;
+  display: inline-block;
+  padding: 10px 10px 0 10px;
+  width: 55%;
   background-color: whitesmoke;
   height:300px;
   font-size: .9em;
@@ -120,14 +119,14 @@ position: relative;
 
 .question_details_holder {
   color: darkslategrey;
-	vertical-align: top;
-	width:100%;
+  vertical-align: top;
+  width:100%;
   float: right;
   border-bottom: 2px solid dimgrey;
 }
 
 
 .comment_response_form {
-	display: none;
+  display: none;
 }
 
