@@ -26,4 +26,12 @@ class Question < ActiveRecord::Base
 											end
 		spec
 	end
+
+	def total_votes
+		info[:total_votes]
+	end
+
+	def total_answers
+		info[:answers].length
+	end
 end
