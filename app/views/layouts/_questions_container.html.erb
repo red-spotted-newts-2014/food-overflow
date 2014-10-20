@@ -1,21 +1,40 @@
-<table>
+<table class="question_table">
 	<tbody>
+		<% @questions.each do |question| %>
 		<tr class="question_row">
-			<td class="holder question_votes">
-				<span class="total_x_text">4</span>
-				<span class="question_info_text">votes</span>
+			<td class="holder">
+				<span class="question_totals">
+					<%= question.total_votes %>
+				</span>
+				<span class="question_info_text">
+					vote<%="s" unless question.total_votes == 1 %>
+				</span>
 			</td>
-			<td class="holder question_answers">
-				<span class="total_x_text">1</span>
-				<span class="question_info_text">answers</span>
+			<td class="holder">
+				<span class="question_totals">
+					<%= question.total_answers %>
+				</span>
+				<span class="question_info_text">
+					answer<%="s" unless question.total_answers == 1 %>
+				</span>
 			</td>
-			<td class="question_index_content">
-				<a class="question_link" href=""><span>Where can I find the best burger in NYC?</span></a>
+			<td class="question_td">
+				<a class="question_link" href="<%= question_url id: question.id %>">
+					<span><%= question.title %>
+					</span>
+				</a>
 			</td>
 			<td class="question_index_tags">
-				<div class="tag">Beef</div>
-				<div class="tag">NYC</div>
+				<% if question.info[:tags] %>
+					<% question.info[:tags].each do |tag|%>
+					<div class="tag">
+						<%= link_to "#{tag.title}", questions_tag_path(tag) %>
+					</div>
+				<% end %>
+			<% end %>
 			</td>
 		</tr>
+		<tr class="question_break"></tr>
+		<% end %>
 	</tbody>
 </table>
