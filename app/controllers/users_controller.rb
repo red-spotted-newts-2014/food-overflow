@@ -15,9 +15,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @client_id = ENV['client_id']
-    @state="somenonsense"
-    redirect_to "https://github.com/login/oauth/authorize?client_id=#{@client_id}"
+    @users = User.all
   end
 
   def show
