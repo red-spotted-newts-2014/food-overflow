@@ -1,34 +1,44 @@
-<h1><%= @question.title %></h1>
-<div id="questions-container">
 
-<div class="vote_box">
-	<div class="voter up" data-true="true" data-route="q-<%= "#{@question.id}" %>"></div>
-	<div class="voter down" data-true="false" data-route="q- <%= "#{@question.id}" %>"></div>
-</div>
-<div class="question_box"><%= @question.content %></div>
-<br>
-<br>
-<div><%= link_to "Edit", edit_question_path, class: "edit-button" %></div><br><br>
+<div class="questions_container">
 
-<%= form_for [@question, Comment.new] do |f| %>
-  <%= f.label :content %><br>
-  <%= f.text_area :content, size: "60x12" %>
-  <br><%= f.submit %>
-<% end %><br>
+  <h1><span class="title"><%= @question.title %></span></h1>
 
-<h2>Comments</h2>
+  <div class="question_holder">
 
-<% @question.comments.each do |comment| %>
+    <div class="question_content_holder">
+      <div class="question_details_holder">
+        <%= render partial: "shared/vote_box", locals: {:id => @question.id, :route => 'q', votes: @question.info[:total_votes] } %>
+        <%= render partial: "shared/user_specs", locals: {name: @maker}  %>
+      </div>
+      <span class="content">
+      <%= @question.content %>
+      </span>
+    </div>
 
-	<p><%= comment.content %></p>
-	<% if comment.comments.any? %>
-		<% comment.comments.each do |c| %>
-			<ul>
-				<li><%= c.content %></li>
-			</ul>
-		<% end %>
-	<% end %>
-	<p><br><em>-- <%= link_to "Respond to this answer", comment_path(comment) %></em></p>
 
-<% end %>
+  </div>
+  <%= form_for [@question, Comment.new] do |f| %>
+  <br>
+    <%= f.text_area :content, size: "60x5", class:"new_comment_content", placeholder:"Your Comment" %>
+    <br>
+    <%= f.submit %>
+  <% end %>
+  <br>
+
+
+  <h2>Comments</h2>
+
+  <% @question.comments.each do |comment| %>
+
+  	<p><%= comment.content %></p>
+  	<% if comment.comments.any? %>
+  		<% comment.comments.each do |c| %>
+  			<ul>
+  				<li><%= c.content %></li>
+  			</ul>
+  		<% end %>
+  	<% end %>
+  	<p><br><em>-- <%= link_to "Respond to this answer", comment_path(comment) %></em></p>
+  <% end %>
+
 </div>

@@ -48,3 +48,4 @@ gem 'selenium-webdriver'
 gem 'database_cleaner'
 gem 'simplecov'
 gem 'rails_12factor', group: :production
+gem 'font-awesome-sass'

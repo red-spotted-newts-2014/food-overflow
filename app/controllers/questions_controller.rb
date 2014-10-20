@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     if @question.save
       flash[:notice] = "Your question has been posted."
-      redirect_to questions_url
+        render json: @question.to_json
     else
       flash[:notice] = "Something was wrong. Please try again."
       render :new
@@ -15,11 +15,16 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all
+    @questions = Question.order_by_votes
   end
 
   def show
     @question = Question.find(params[:id])
+    if @question.user.nil?
+      @maker = "Anonymous"
+    else
+    @maker = @question.user.name
+  end
   end
 
   def edit

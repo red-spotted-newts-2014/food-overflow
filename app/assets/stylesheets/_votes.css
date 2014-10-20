@@ -1,0 +1,41 @@
+.zero {
+  color:grey;
+}
+
+.positive {
+  color:black;
+}
+
+.negative {
+  color:red;
+}
+.vote_box {
+  display: inline-block;
+  position: relative;
+}
+
+.vote_box div {
+  display: inline-block;
+}
+
+
+.vote_holder {
+  position: relative;
+  font-size: 1.25em;
+  text-align: center;
+}
+
+.voter {
+  border-radius: 10%;
+  padding:4px;
+  font-size: 1.25em;
+  font-weight: 900;
+}
+
+.up:hover {
+  background-color: olivedrab;
+}
+
+.down:hover{
+  background-color: rosybrown;
+}

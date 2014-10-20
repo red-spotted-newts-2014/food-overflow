@@ -1,19 +1,46 @@
-<div id="questions-container">
-	<div class="form_holder">
-		<div class="tag_holder"></div>
-	<%= form_for :question, url: {action: "create" }, html: {class: "question_form"} do |f| %>
-		<p>
-			<%= f.label :title %><br>
-	  	<%= f.text_field :title, placeholder: 'Topic' %>
-		</p>
-		<p>
-			<%= f.label :content %><br>
-		  <%= f.text_area :content, placeholder: 'Details', size: "60x10"%>
-		</p>
+<div class="questionapp">
+	<section id="question_builder">
+		<header class="question_header">
+      <%= form_for :question, url: {action: "create" }, html: {class: "question_form"} do |f| %>
+      <h1>New Question</h1>
+      <%= f.text_area :title, size: "75x1", class:"new_question", autofocus:true %>
+      <%= f.text_area :content, size: "75x5", class:"new_content" %>
+      <%= f.button class:"question_button" %>
+      <% end %>
+		</header>
+			<section class="formulated_question">
+			</section>
+			<footer> </footer>
+	</section>
 
-	  <%= f.submit 'Save' %>
-	<% end %>
-		<div class="tag_maker">
-			<input class= "tag_input" type="text" placeholder="Add A Tag"></div>
-	</div>
+
+	<section id="tag_builder" class="hidden">
+		<header class="tag_header">
+			<h2>Tags</h2>
+			<input class="new_tag" placeholder="Any Tags?" autofocus>
+		</header>
+		<section class="tags_main">
+			<ul class="tag_list"></ul>
+		</section>
+		<footer></footer>
+	</section>
 </div>
+  <script type="text/template" id="question_template">
+    <div class="questions_container">
+        <h1><span class="title">{{title}}</span></h1>
+        <div class="question_holder">
+        <div class="question_content_holder">
+        <span class="content">{{content}}</span>
+        </div>
+      </div>
+    </div>
+  </script>
+
+    <script type="text/template" id="tag_template">
+    <div class="tag_view">
+      <label>{{name}}</label>
+      <button class="destroy"></button>
+    </div>
+    <input class="edit" value="{{name}}">
+  </script>
+  <%= javascript_include_tag "question" %>

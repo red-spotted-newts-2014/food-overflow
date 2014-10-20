@@ -2,13 +2,15 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   root 'questions#index'
-  
-  get '/users/sign_in', to: 'users#sign_in'
+
+  get 'signin', to: 'sessions#new'
+  get 'signout', to: 'sessions#logout'
+  get 'signup', to: 'users#new'
   post '/users/auth', to: 'users#auth'
   get '/users/auth', to: 'users#landing_page'
-  post '/users/log_out', to: 'users#logout'
 
   # resources :users, shallow: true do
+  resources :sessions
   resources :users
   resources :votes
   resources :auths
