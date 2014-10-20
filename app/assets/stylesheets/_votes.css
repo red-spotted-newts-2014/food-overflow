@@ -11,35 +11,31 @@
 }
 .vote_box {
   display: inline-block;
-  width: 65px;
   position: relative;
 }
 
-.vote_button_holder {
+.vote_box div {
   display: inline-block;
-  position: relative;
-  width: 15%;
-  bottom: -15px;
 }
+
 
 .vote_holder {
   position: relative;
-  display: inline-block;
-  font-size: 2em;
+  font-size: 1.25em;
   text-align: center;
-  width: 60%;
-  line-height: 60px;
 }
 
 .voter {
-  border-radius: 25%;
-  width:10px;
-  margin:2px;
-  height:25px;
-  font-size: .75em;
-  background-color: #FFC470;
+  border-radius: 10%;
+  padding:4px;
+  font-size: 1.25em;
+  font-weight: 900;
 }
 
-.voter:hover {
-  background-color: grey;
+.up:hover {
+background-color: olivedrab;
+}
+
+.down:hover{
+background-color: rosybrown;
 }
