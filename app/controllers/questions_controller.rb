@@ -24,7 +24,12 @@ class QuestionsController < ApplicationController
       @maker = "Anonymous"
     else
     @maker = @question.user.name
-  end
+    end
+    if session[:user_id]
+      user = User.find(session[:user_id])
+      vote = user.votes.where(votable_type: "question").find_by(votable_id: @question.id)
+      @upvote = vote.is_upvote unless vote.nil?
+    end
   end
 
   def edit
