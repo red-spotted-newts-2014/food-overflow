@@ -1,5 +1,6 @@
 class Vote < ActiveRecord::Base
 belongs_to :votable, polymorphic: :true
+belongs_to :user
 
   scope :count_upvotes, -> { where(is_upvote: true).count }
   scope :count_downvotes, -> { where(is_upvote: false).count }
