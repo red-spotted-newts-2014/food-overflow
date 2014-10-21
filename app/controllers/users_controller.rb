@@ -22,6 +22,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def current_votes
+    render json: nil if session[:user_id].nil?
+    user = User.find(session[:user_id])
+    votes = user.votes.where(votable_type: "question")
+    @vote_stats = {}
+    votes.each do |vote|
+      @vote_stats[vote.votable_id] = vote.is_upvote
+    end
+    render json: @vote_stats
+  end
+
   private
   def user_params
     params.require(:user).permit!
