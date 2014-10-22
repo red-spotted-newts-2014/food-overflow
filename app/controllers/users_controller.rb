@@ -22,6 +22,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def current
+    render json: nil if session[:user_id].nil?
+    render json: session[:user_id]
+  end
+
   def current_votes
     render json: nil if session[:user_id].nil?
     user = User.find(session[:user_id])
