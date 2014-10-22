@@ -1,11 +1,11 @@
-app = ap || {};
+app = app || {};
 
 app.User = Backbone.Model.extend({
 
   defaults: {
     user_id: null,
-    voteData = null,
-    questionOwner = null
+    voteData: null,
+    questionOwner: null
   },
 
   initialize: function(){
@@ -22,6 +22,6 @@ app.User = Backbone.Model.extend({
     .fail(function() {
       this.voteData = null;
     })
-  };
+  }
 
 })
