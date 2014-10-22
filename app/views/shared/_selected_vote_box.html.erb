@@ -5,7 +5,7 @@
   <div class="vote_holder">
     <%= votes %>
   </div>
-   <div class="voter down <%= selected unless @upvote %>" data-true="false" data-route="<%= "#{route}"%>-<%= "#{id}" %>">
+   <div class="voter down <%= "selected" unless @upvote %>" data-true="false" data-route="<%= "#{route}"%>-<%= "#{id}" %>">
     <i class="fa fa-angle-down"></i>
    </div>
 </div>
