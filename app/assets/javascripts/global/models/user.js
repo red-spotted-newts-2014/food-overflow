@@ -11,5 +11,17 @@ app.User = Backbone.Model.extend({
   initialize: function(){
 
   },
+  collectVotes: function(){
+    $.ajax({
+      url: '/users/current/votes',
+      type: 'GET'
+    })
+    .success(function(data) {
+      this.voteData = JSON.parse(data);
+    })
+    .fail(function() {
+      this.voteData = null;
+    })
+  };
 
 })
