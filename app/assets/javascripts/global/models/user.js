@@ -1,6 +1,6 @@
 app = app || {};
 
-app.User = Backbone.Model.extend({
+var User = Backbone.Model.extend({
 
   defaults: {
     user_id: null,
@@ -11,6 +11,20 @@ app.User = Backbone.Model.extend({
   initialize: function(){
 
   },
+
+  collectUser: function(){
+    $.ajax({
+      url :'/users/current',
+      type: 'GET'
+    })
+    .success(function(data){
+      this.user_id = JSON.parse(data);
+    })
+    .fail(function(){
+      this.user_id = null;
+    })
+  },
+
   collectVotes: function(){
     $.ajax({
       url: '/users/current/votes',
@@ -25,3 +39,5 @@ app.User = Backbone.Model.extend({
   }
 
 })
+
+app.currentUser = new User
