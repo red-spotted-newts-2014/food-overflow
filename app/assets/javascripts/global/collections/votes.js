@@ -13,6 +13,10 @@ app.Votes = Backbone.Collection.extend({
     return this.reject(function(vote){
       return this.get("is_upvote")
     });
-  }
+  },
+
+  totalPositive: function(){
+    return this.upvotes().length - this.downvotes().length
+  },
 
 });
