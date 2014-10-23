@@ -4,7 +4,7 @@ app.Vote = Backbone.Model.extend({
 
   defaults: {
     user_id: null,
-    upvote: null,
+    is_upvote: null,
     vote_type: null,
     vote_for: null
   },
