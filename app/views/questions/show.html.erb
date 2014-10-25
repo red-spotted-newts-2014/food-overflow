@@ -1,12 +1,12 @@
 
-<div class="questions_container" data-question=<%= @question.id %>>
+<div class="questions_container">
 
   <h1><span class="title"><%= @question.title %></span></h1>
 
   <div class="question_holder">
 
     <div class="question_content_holder">
-      <div class="question_details_holder">
+      <div class="question_details_holder" data-question=<%= @question.id %>>
         <% if @upvote.nil? %>
           <%= render partial: "shared/vote_box", locals: {:id => @question.id, :route => 'q', votes: @question.info[:total_votes] } %>
         <% else %>
@@ -60,3 +60,4 @@
    </div>
 </div>
 </script>
+ <%= javascript_include_tag "question_voter.js" %>
