@@ -23,11 +23,15 @@ class UsersController < ApplicationController
   end
 
   def current
-    render json: nil if session[:user_id].nil?
-    render json: session[:user_id]
+    if session[:user_id].nil?
+      render json: nil
+    else
+      render json: session[:user_id]
+    end
   end
 
   def current_votes
+    p session[:user_id]
     render json: nil if session[:user_id].nil?
     user = User.find(session[:user_id])
     votes = user.votes.where(votable_type: "question")
