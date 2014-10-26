@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/users/auth', to: 'users#landing_page'
   get '/users/current', to: "users#current"
   get '/users/current/votes', to: 'users#current_votes'
-  get '/votes/question/:id', to: "votes#create_per_question"
+  get '/votes/question/:id', to: "votes#find_per_question"
 
   # resources :users, shallow: true do
   resources :sessions

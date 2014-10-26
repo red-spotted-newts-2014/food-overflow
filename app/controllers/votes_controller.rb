@@ -23,7 +23,7 @@ class VotesController < ApplicationController
     @votes = Vote.all
   end
 
-  def create_per_question
+  def find_per_question
   end
 
   private
