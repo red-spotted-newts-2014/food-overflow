@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
   def create
     owner = params[:vote]["owner"]
-    id = owner[2,owner.size].to_i 
+    id = owner[2,owner.size].to_i
     upvote = params[:vote]["is_upvote"] == "true"
     if owner[0] == "q"
       @question = Question.find(id).votes.create(is_upvote: upvote)
@@ -21,6 +21,9 @@ class VotesController < ApplicationController
   def index
     @vote = Vote.new
     @votes = Vote.all
+  end
+
+  def create_per_question
   end
 
   private
