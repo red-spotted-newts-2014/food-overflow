@@ -11,5 +11,17 @@ app.Vote = Backbone.Model.extend({
 
   initialize: function(){
 
+  },
+
+  upVote: function(){
+
+  },
+
+  downVote: function(){
+
+  },
+
+  nullVote: function(){
+
   }
 })
