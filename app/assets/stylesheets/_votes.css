@@ -18,6 +18,21 @@
   display: inline-block;
 }
 
+.vote_box .vote_holder {
+  display: none;
+}
+
+.likes .likes {
+  display: inline;
+}
+
+.dislikes .dislikes {
+  display: inline;
+}
+
+.unvoted .unvoted {
+  display: inline;
+}
 
 .vote_holder {
   position: relative;
@@ -37,5 +52,12 @@
 }
 
 .down:hover{
+  background-color: rosybrown;
+}
+
+.up.selected {
+  background-color: olivedrab;
+}
+.down.selected {
   background-color: rosybrown;
 }
