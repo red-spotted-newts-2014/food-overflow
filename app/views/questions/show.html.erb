@@ -1,17 +1,12 @@
 
 <div class="questions_container">
-
   <h1><span class="title"><%= @question.title %></span></h1>
 
   <div class="question_holder">
 
     <div class="question_content_holder">
       <div class="question_details_holder" data-question=<%= @question.id %>>
-        <% if @upvote.nil? %>
-          <%= render partial: "shared/vote_box", locals: {:id => @question.id, :route => 'q', votes: @question.info[:total_votes] } %>
-        <% else %>
-          <%= render partial: "shared/selected_vote_box", locals: {:id => @question.id, :route => 'q', votes: @question.info[:total_votes] } %>
-          <% end %>
+          <%= render partial: "shared/vote_box", locals: {:id => @question.id, :route => 'q', votes: @total_votes, :vote  => @vote } %>
         <%= render partial: "shared/user_specs", locals: {name: @maker}  %>
       </div>
       <span class="content">
@@ -48,7 +43,6 @@
 </div>
 
 <script type="text/template" id="vote-template">
-<div class="vote_box">
   <div class="voter up" data-true="true">
     <i class="fa fa-angle-up"></i>
   </div>
@@ -58,6 +52,5 @@
    <div class="voter down" data-true="false">
     <i class="fa fa-angle-down"></i>
    </div>
-</div>
 </script>
  <%= javascript_include_tag "question_voter.js" %>
