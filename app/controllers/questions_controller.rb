@@ -20,16 +20,15 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    if @question.user.nil?
-      @maker = "Anonymous"
-    else
-    @maker = @question.user.name
-    end
+    @maker = @question.user.nil? ? "Anonymous" : @question.user.name
     if session[:user_id]
-      user = User.find(session[:user_id])
-      vote = user.votes.where(votable_type: "question").find_by(votable_id: @question.id)
-      @upvote = vote.is_upvote unless vote.nil?
+      @vote = User.find(session[:user_id]).votes.where(votable_type: "Question").find_by(votable_id: @question.id)
+      @vote = @vote.is_upvote unless @vote.nil?
+    else
+      @vote = nil
     end
+    @total_votes = @question.info[:total_votes]
+    @total_votes = @vote ? (@total_votes - 1) : (@total_votes + 1) unless @vote.nil?
   end
 
   def edit
