@@ -32,15 +32,17 @@ class UsersController < ApplicationController
   end
 
   def current_votes
-    p session[:user_id]
-    render json: nil if session[:user_id].nil?
-    user = User.find(session[:user_id])
-    votes = user.votes.where(votable_type: "question")
-    @vote_stats = {}
-    votes.each do |vote|
-      @vote_stats[vote.votable_id] = vote.is_upvote
+    if session[:user_id].nil?
+      render json: nil
+    else
+      user = User.find(session[:user_id])
+      votes = user.votes.where(votable_type: "question")
+      @vote_stats = {}
+      votes.each do |vote|
+        @vote_stats[vote.votable_id] = vote.is_upvote
+      end
+      render json: @vote_stats
     end
-    render json: @vote_stats
   end
 
   private
