@@ -1,31 +1,32 @@
-app = app || {};
+ app = app || {};
 
 var User = Backbone.Model.extend({
 
   defaults: {
-    voteData: null,
-    questionOwner: null
+    loggedIn: false
   },
 
   initialize: function(){
-    this.collectUser(this);
-    this.collectVotes(this);
+    this.collectUser();
   },
 
-  collectUser: function(self){
+  collectUser: function(){
+    self = this;
     $.ajax({
       url :'/users/current',
       type: 'GET'
     })
     .success(function(data){
-      self.set("user_id" , data);
+      self.set("loggedIn" , data["name"]);
     })
     .fail(function(){
-      self.set("user_id", null);
+      console.log("test")
+      self.set("loggedIn", false);
     })
   },
 
-  collectVotes: function(self){
+  collectVotes: function(){
+    self = this;
     $.ajax({
       url: '/users/current/votes',
       type: 'GET'

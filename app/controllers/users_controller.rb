@@ -24,9 +24,10 @@ class UsersController < ApplicationController
 
   def current
     if session[:user_id].nil?
-      render json: nil
+      render json: false
     else
-      render json: session[:user_id]
+      @name = User.find(session[:user_id]).name
+      render json: {name: @name }
     end
   end
 
