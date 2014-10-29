@@ -1,4 +1,4 @@
-app = app || {};
+var app = app || {};
 
 app.QuestionView = Backbone.View.extend({
 
@@ -8,11 +8,10 @@ app.QuestionView = Backbone.View.extend({
 
   initializeTemplates: function(){
     _.templateSettings = { interpolate: /\{\{(.+?)\}\}/g };
-    this.template = _.template( $('#question_template').html() )
+    this.template =  this.template || _.template( $('#question_template').html() );
   },
 
   initialize: function(){
-    this.initializeTemplates();
     this.$title = $(".new_question");
     this.$content = $(".new_content");
     this.$form = $(".question_form");
@@ -35,8 +34,8 @@ app.QuestionView = Backbone.View.extend({
 
   submitQuestion: function(e){
     e.preventDefault()
+    this.initializeTemplates();
     this.model.save({title: this.$title.val(), content: this.$content.val()})
-    console.log('geez')
   }
 
 });
