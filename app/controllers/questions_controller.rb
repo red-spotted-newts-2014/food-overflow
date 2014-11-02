@@ -21,8 +21,9 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @maker = @question.user.nil? ? "Anonymous" : @question.user.name
-    if session[:user_id]
-      @vote = User.find(session[:user_id]).votes.where(votable_type: "Question").find_by(votable_id: @question.id)
+    @loggedin = current_user ? true : false
+    if current_user
+      @vote = current_user.votes.where(votable_type: "Question").find_by(votable_id: @question.id)
       @vote = @vote.is_upvote unless @vote.nil?
     else
       @vote = nil
