@@ -1,5 +1,5 @@
 <div class="vote_box  <%= vote.nil? ? "unvoted" : (vote ? "likes" : "dislikes") %>">
-  <div class="voter up <%=  "selected" if vote unless vote.nil?  %>" data-true="true" data-route="<%= "#{route}" %>-<%= "#{id}" %>">
+  <div class="voter up <%= "loggedin" if loggedin %> <%=  "selected" if vote unless vote.nil?  %>" data-true="true" data-route="<%= "#{route}" %>-<%= "#{id}" %>">
     <i class="fa fa-angle-up"></i>
   </div>
     <div class="vote_holder dislikes">
@@ -11,7 +11,7 @@
     <div class="vote_holder likes">
     <%= votes+1 %>
   </div>
-   <div class="voter down <%=  "selected" unless vote unless vote.nil?  %>" data-true="false" data-route="<%= "#{route}"%>-<%= "#{id}" %>">
+   <div class="voter down <%= "loggedin" if loggedin %> <%=  "selected" unless vote unless vote.nil?  %>" data-true="false" data-route="<%= "#{route}"%>-<%= "#{id}" %>">
     <i class="fa fa-angle-down"></i>
    </div>
 </div>
