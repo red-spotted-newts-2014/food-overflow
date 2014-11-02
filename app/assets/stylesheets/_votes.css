@@ -61,3 +61,12 @@
 .down.selected {
   background-color: rosybrown;
 }
+
+.notice {
+  font-size: .825em;
+  display: none;
+  background-color: salmon;
+  color: white;
+  padding: 5px;
+  border-radius: 10%;
+}
