@@ -4,7 +4,9 @@ app.QuestionView = Backbone.View.extend({
 
   events: {
     'submit .question_form': 'submitQuestion',
+    'click .voter:not(.loggedin)': 'alertLogin'
   },
+
 
   initializeTemplates: function(){
     _.templateSettings = { interpolate: /\{\{(.+?)\}\}/g };
@@ -15,7 +17,8 @@ app.QuestionView = Backbone.View.extend({
     this.$title = $(".new_question");
     this.$content = $(".new_content");
     this.$form = $(".question_form");
-    this.$show = $(".formulated_question")
+    this.$show = $(".formulated_question");
+    this.$voteBox = $(".vote_box");
     this.model = new app.Question();
 
     this.listenTo(this.model, 'sync', this.render);
@@ -36,6 +39,12 @@ app.QuestionView = Backbone.View.extend({
     e.preventDefault()
     this.initializeTemplates();
     this.model.save({title: this.$title.val(), content: this.$content.val()})
+  },
+
+  alertLogin: function() {
+    $('.notice').css('display', 'inline-block').fadeOut(2000, function() {
+    });
   }
+
 
 });
