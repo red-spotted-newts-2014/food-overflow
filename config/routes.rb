@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # resources :users, shallow: true do
   resources :sessions
   resources :users
-  resources :votes only: [:create, :update]
+  resources :votes, only: [:create, :update]
   resources :auths
 
 
