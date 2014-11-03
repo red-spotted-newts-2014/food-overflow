@@ -1,4 +1,4 @@
- app = app || {};
+var app = app || {};
 
 var User = Backbone.Model.extend({
 
