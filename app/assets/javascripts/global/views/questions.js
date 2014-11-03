@@ -63,19 +63,35 @@ app.QuestionView = Backbone.View.extend({
   },
 
   visualizeVote: function(){
-    this.$voteBox.removeClass('unvoted likes dislikes')
-    this.$voteBox.find(".voter").removeClass('selected')
+    this.visualizeClear()
     var vote = this.activeVote.get('is_upvote')
     if (vote === null) {
-      this.$voteBox.addClass('unvoted')
+      this.visualizeNull()
     } else if (vote === true) {
-      this.$voteBox.addClass('likes')
-      this.$voteBox.find(".up").addClass('selected')
+      this.visualizeUp()
     } else {
-      this.$voteBox.addClass('dislikes')
-      this.$voteBox.find(".down").addClass('selected')
+      this.visualizeDown()
     }
   },
 
+  visualizeDown: function(){
+    this.$voteBox.addClass('dislikes')
+    this.$voteBox.find(".down").addClass('selected')
+
+  },
+
+  visualizeUp: function(){
+    this.$voteBox.addClass('likes')
+    this.$voteBox.find(".up").addClass('selected')
+  },
+
+  visualizeNull: function(){
+    this.$voteBox.addClass('unvoted')
+  },
+
+  visualizeClear: function(){
+    this.$voteBox.removeClass('unvoted likes dislikes')
+    this.$voteBox.find(".voter").removeClass('selected')
+  }
 
 });
