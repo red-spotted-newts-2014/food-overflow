@@ -27,6 +27,7 @@ app.QuestionView = Backbone.View.extend({
 
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model, 'sync', this.exitForm);
+    this.listenTo(this.activeVote, 'sync', this.visualizeVote)
   },
 
   render: function(){
@@ -59,7 +60,22 @@ app.QuestionView = Backbone.View.extend({
 
   alertLogin: function() {
     $('.notice').css('display', 'inline-block').fadeOut(2000);
-  }
+  },
+
+  visualizeVote: function(){
+    this.$voteBox.removeClass('unvoted likes dislikes')
+    this.$voteBox.find(".voter").removeClass('selected')
+    var vote = this.activeVote.get('is_upvote')
+    if (vote === null) {
+      this.$voteBox.addClass('unvoted')
+    } else if (vote === true) {
+      this.$voteBox.addClass('likes')
+      this.$voteBox.find(".up").addClass('selected')
+    } else {
+      this.$voteBox.addClass('dislikes')
+      this.$voteBox.find(".down").addClass('selected')
+    }
+  },
 
 
 });
