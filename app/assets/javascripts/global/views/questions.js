@@ -19,7 +19,9 @@ app.QuestionView = Backbone.View.extend({
     this.$form = $(".question_form");
     this.$show = $(".formulated_question");
     this.$voteBox = $(".vote_box");
-    this.model = new app.Question();
+    this.modelId = this.queryId();
+    this.model = new app.Question({"id": this.modelId });
+    this.activeVote = new app.Vote({'votable_type': 'Question', 'votable_id': this.modelId });
 
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model, 'sync', this.exitForm);
