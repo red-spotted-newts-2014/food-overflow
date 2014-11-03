@@ -4,6 +4,8 @@ app.QuestionView = Backbone.View.extend({
 
   events: {
     'submit .question_form': 'submitQuestion',
+    'click .up.loggedin': 'voteUp',
+    'click .down.loggedin': 'voteDown',
     'click .voter:not(.loggedin)': 'alertLogin'
   },
 
@@ -43,9 +45,20 @@ app.QuestionView = Backbone.View.extend({
     this.model.save({title: this.$title.val(), content: this.$content.val()})
   },
 
+  queryId: function(){
+    return this.$el.data('id')
+  },
+
+  voteUp: function(){
+    this.activeVote.upVote()
+  },
+
+  voteDown: function(){
+    this.activeVote.downVote()
+  },
+
   alertLogin: function() {
-    $('.notice').css('display', 'inline-block').fadeOut(2000, function() {
-    });
+    $('.notice').css('display', 'inline-block').fadeOut(2000);
   }
 
 
