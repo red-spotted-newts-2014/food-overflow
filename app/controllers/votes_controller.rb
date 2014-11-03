@@ -17,14 +17,6 @@ class VotesController < ApplicationController
     end
   end
 
-  def index
-    @vote = Vote.new
-    @votes = Vote.all
-  end
-
-  def find_per_question
-  end
-
   private
 
   def set_vote
