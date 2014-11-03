@@ -1,13 +1,12 @@
 
-<div class="questions_container">
-
+<div id="question" class="questions_container" data-id=<%= @question.id %>>
   <h1><span class="title"><%= @question.title %></span></h1>
 
   <div class="question_holder">
 
     <div class="question_content_holder">
-      <div class="question_details_holder">
-        <%= render partial: "shared/vote_box", locals: {:id => @question.id, :route => 'q', votes: @question.info[:total_votes] } %>
+      <div class="question_details_holder" data-question=<%= @question.id %>>
+          <%= render partial: "shared/vote_box", locals: {:id => @question.id, :route => 'q', votes: @total_votes, :vote  => @vote, loggedin: @loggedin } %>
         <%= render partial: "shared/user_specs", locals: {name: @maker}  %>
       </div>
       <span class="content">
@@ -42,3 +41,5 @@
   <% end %>
 
 </div>
+
+ <%= javascript_include_tag "question_voter.js" %>

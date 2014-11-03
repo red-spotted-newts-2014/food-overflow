@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+    @question.user_id = session[:user_id] if logged_in
     if @question.save
       flash[:notice] = "Your question has been posted."
         render json: @question.to_json
@@ -20,11 +21,16 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    if @question.user.nil?
-      @maker = "Anonymous"
+    @maker = @question.user.nil? ? "Anonymous" : @question.user.name
+    @loggedin = logged_in
+    if logged_in
+      @vote = current_user.votes.where(votable_type: "Question").find_by(votable_id: @question.id)
+      @vote = @vote.is_upvote unless @vote.nil?
     else
-    @maker = @question.user.name
-  end
+      @vote = nil
+    end
+    @total_votes = @question.info[:total_votes]
+    @total_votes = @vote ? (@total_votes - 1) : (@total_votes + 1) unless @vote.nil?
   end
 
   def edit

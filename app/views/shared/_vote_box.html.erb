@@ -1,11 +1,20 @@
-<div class="vote_box">
-  <div class="voter up" data-true="true" data-route="<%= "#{route}" %>-<%= "#{id}" %>">
+<div class="vote_box  <%= vote.nil? ? "unvoted" : (vote ? "likes" : "dislikes") %>">
+  <div class="voter up <%= "loggedin" if loggedin %> <%=  "selected" if vote unless vote.nil?  %>">
     <i class="fa fa-angle-up"></i>
   </div>
-  <div class="vote_holder">
+    <div class="vote_holder dislikes">
+    <%= votes-1 %>
+  </div>
+  <div class="vote_holder unvoted">
     <%= votes %>
   </div>
-   <div class="voter down" data-true="false" data-route="<%= "#{route}"%>-<%= "#{id}" %>">
+    <div class="vote_holder likes">
+    <%= votes+1 %>
+  </div>
+   <div class="voter down <%= "loggedin" if loggedin %> <%=  "selected" unless vote unless vote.nil?  %>">
     <i class="fa fa-angle-down"></i>
    </div>
+</div>
+<div class="notice">
+  You must be logged in to vote!
 </div>

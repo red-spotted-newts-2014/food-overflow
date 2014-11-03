@@ -1,30 +1,48 @@
 class VotesController < ApplicationController
+
   def create
-    owner = params[:vote]["owner"]
-    id = owner[2,owner.size].to_i 
-    upvote = params[:vote]["is_upvote"] == "true"
-    if owner[0] == "q"
-      @question = Question.find(id).votes.create(is_upvote: upvote)
-    respond_to do |format|
-      format.json {render json: @question.id.to_json}
+    if logged_in
+      @vote = Vote.where(user_id: session[:user_id]).find_or_initialize_by(vote_params)
+      set_vote
+      save_vote
+    else
+      render json: nil
     end
-    end
-    if owner[0] == "c"
-      Comment.find(id).votes.create(is_upvote: upvote)
-    end
-    ""
   end
 
   def update
-  end
-
-  def index
-    @vote = Vote.new
-    @votes = Vote.all
+    if logged_in
+      set_vote
+      save_vote
+    end
   end
 
   private
+
+  def set_vote
+    @vote ||= Vote.find(params[:id])
+    p upvote_param
+    if @vote.is_upvote == upvote_param[:is_upvote]
+      @vote.is_upvote = nil
+    else
+      @vote.is_upvote = upvote_param[:is_upvote]
+    end
+  end
+
+  def save_vote
+    if @vote.save
+      render json: @vote.to_json
+    else
+      render json: nil
+    end
+  end
+
+
   def vote_params
-    params.require(:vote).permit!
+    params.require(:vote).permit(:votable_type, :votable_id)
+  end
+
+  def upvote_param
+    params.require(:vote).permit(:is_upvote)
   end
 end

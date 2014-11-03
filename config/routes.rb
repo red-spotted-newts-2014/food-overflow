@@ -8,11 +8,13 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   post '/users/auth', to: 'users#auth'
   get '/users/auth', to: 'users#landing_page'
+  get '/users/current', to: "users#current"
+  get '/users/current/votes', to: 'users#current_votes'
 
   # resources :users, shallow: true do
   resources :sessions
   resources :users
-  resources :votes
+  resources :votes, only: [:create, :update]
   resources :auths
 
 

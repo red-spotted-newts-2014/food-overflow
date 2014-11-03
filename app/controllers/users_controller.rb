@@ -15,13 +15,33 @@ class UsersController < ApplicationController
   end
 
   def index
-    @client_id = ENV['client_id']
-    @state="somenonsense"
-    redirect_to "https://github.com/login/oauth/authorize?client_id=#{@client_id}"
+    @users = User.all
   end
 
   def show
     @user = User.find(params[:id])
+  end
+
+  def current
+    if current_user
+      @name = current_user.name
+      render json: {name: @name }
+    else
+      render json: false
+    end
+  end
+
+  def current_votes
+    if current_user
+      votes = current_user.votes.where(votable_type: "question")
+      @vote_stats = {}
+      votes.each do |vote|
+        @vote_stats[vote.votable_id] = vote.is_upvote
+      end
+      render json: @vote_stats
+    else
+      render json: nil
+    end
   end
 
   private
